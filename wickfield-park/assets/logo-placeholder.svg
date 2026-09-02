@@ -1,0 +1,23 @@
+<!-- PLACEHOLDER LOGO — replace this file with the real Wickfield Park logo.
+     Keep the filename (assets/logo-placeholder.svg) or update the two <img src> refs in index.html.
+     Recommended real asset: SVG, or PNG at 600x180 with a transparent background. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" width="600" height="180" role="img" aria-label="Wickfield Park logo placeholder">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F3E2C7"/><stop offset="1" stop-color="#E8D3B0"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <circle cx="90" cy="90" r="72" fill="#1F3D2B"/>
+    <circle cx="90" cy="90" r="62" fill="url(#sky)"/>
+    <circle cx="90" cy="70" r="16" fill="#D97F30"/>
+    <path d="M28 118 L62 78 L88 108 L112 72 L152 118 Z" fill="#2E5C40"/>
+    <path d="M28 118 h124 v14 a62 62 0 0 1 -124 0 z" fill="#1F3D2B"/>
+    <path d="M90 28 v124" stroke="#1F3D2B" stroke-width="0" />
+  </g>
+  <g font-family="Georgia, 'Times New Roman', serif" fill="#1F3D2B">
+    <text x="196" y="82" font-size="46" font-weight="700" letter-spacing="1">WICKFIELD</text>
+    <text x="196" y="126" font-size="46" font-weight="400" letter-spacing="14" fill="#D97F30">PARK</text>
+  </g>
+  <text x="198" y="152" font-family="Helvetica, Arial, sans-serif" font-size="13" letter-spacing="3" fill="#5C5F58">STILLWATER, OKLAHOMA</text>
+</svg>

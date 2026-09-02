@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wickfield Park | RV Park in Stillwater, OK — Oversized Pull-Through Sites</title>
+  <meta name="description" content="Wickfield Park is a quiet, rural RV park at 1919 N Jardot Rd in Stillwater, OK. 11 oversized pull-through sites with 50 amp electric, free WiFi, a dog park and a chipping green. Daily, weekly and monthly rates.">
+  <meta name="keywords" content="RV park Stillwater OK, RV camping Stillwater Oklahoma, OSU game day RV parking, pull through RV sites Stillwater, monthly RV park Stillwater, 50 amp RV park Oklahoma">
+  <meta name="robots" content="index, follow">
+  <!-- TODO: confirm final domain, then update canonical + og:url + sitemap.xml + robots.txt -->
+  <link rel="canonical" href="https://wickfieldpark.com/">
+  <meta property="og:title" content="Wickfield Park | RV Park in Stillwater, OK">
+  <meta property="og:description" content="11 oversized pull-through sites, 50 amp electric, free WiFi, dog park and chipping green — minutes from Oklahoma State University.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wickfieldpark.com/">
+  <meta property="og:image" content="https://wickfieldpark.com/assets/img/hero.svg">
+  <meta name="theme-color" content="#1F3D2B">
+  <link rel="icon" href="assets/logo-placeholder.svg" type="image/svg+xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RVPark",
+    "name": "Wickfield Park",
+    "description": "Quiet, rural RV park on the edge of Stillwater, Oklahoma with 11 oversized pull-through sites, 50 amp electric, free WiFi, a dog park and a chipping green.",
+    "url": "https://wickfieldpark.com/",
+    "telephone": "(405) 000-0000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1919 N Jardot Rd",
+      "addressLocality": "Stillwater",
+      "addressRegion": "OK",
+      "postalCode": "74075",
+      "addressCountry": "US"
+    },
+    "areaServed": { "@type": "City", "name": "Stillwater" },
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "50 Amp Electric", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Pull-Through Sites", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Dog Park", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Chipping Green", "value": true }
+    ],
+    "petsAllowed": true,
+    "priceRange": "$$"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --pine:#1F3D2B;
+      --pine-dk:#142519;
+      --moss:#2E5C40;
+      --amber:#D97F30;
+      --amber-dk:#B9651F;
+      --sand:#F5EBD6;
+      --cream:#FDFAF3;
+      --ink:#1D1F1A;
+      --mid:#5C5F58;
+      --line:#E4DCCB;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--ink);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4,.display{font-family:'Bitter',Georgia,serif;line-height:1.15}
+    a{color:inherit}
+
+    .topbar{background:var(--pine-dk);color:#C9D3C6;font-size:13.5px;text-align:center;padding:9px 20px;letter-spacing:.02em}
+    .topbar a{color:var(--amber);text-decoration:none;font-weight:600}
+    .topbar a:hover{color:#fff}
+
+    header{background:var(--cream);border-bottom:1px solid var(--line);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;position:sticky;top:0;z-index:100;box-shadow:0 1px 14px rgba(31,61,43,.07)}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .brand img{height:52px;width:auto;display:block}
+    nav{display:flex;align-items:center;gap:28px}
+    nav a{font-size:14.5px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:.01em}
+    nav a:hover{color:var(--pine)}
+    .btn{display:inline-block;font-family:'Inter',sans-serif;font-weight:600;text-decoration:none;text-align:center;cursor:pointer;border:none;border-radius:3px;transition:transform .12s,opacity .2s,background .2s}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-book{background:var(--amber);color:#fff;font-size:14.5px;letter-spacing:.02em;padding:11px 22px}
+    .btn-book:hover{background:var(--amber-dk)}
+    .btn-lg{font-size:17px;padding:16px 34px}
+    .btn-primary{background:var(--amber);color:#fff}
+    .btn-primary:hover{background:var(--amber-dk)}
+    .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55);margin-left:12px}
+    .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+    .btn-outline{background:transparent;color:var(--pine);border:1.5px solid var(--pine)}
+    .btn-outline:hover{background:var(--pine);color:#fff}
+
+    .hero{position:relative;min-height:600px;display:flex;align-items:center;overflow:hidden;background:var(--pine)}
+    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(20,37,25,.9) 0%,rgba(20,37,25,.7) 45%,rgba(20,37,25,.25) 100%)}
+    .hero-content{position:relative;z-index:2;max-width:760px;padding:80px 40px 80px 60px}
+    .eyebrow{display:inline-block;background:rgba(217,127,48,.95);color:#fff;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:2px;margin-bottom:22px}
+    h1{font-size:clamp(36px,5.2vw,60px);font-weight:700;color:#fff;margin-bottom:20px;letter-spacing:-.01em}
+    h1 em{font-style:normal;color:var(--amber)}
+    .hero-sub{color:#DCE4D8;font-size:19px;max-width:560px;margin-bottom:34px}
+    .hero-actions{display:flex;flex-wrap:wrap;align-items:center}
+
+    .facts{background:var(--pine-dk);padding:0}
+    .facts-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
+    .fact{padding:26px 18px;text-align:center;border-right:1px solid rgba(255,255,255,.09)}
+    .fact:last-child{border-right:none}
+    .fact strong{display:block;font-family:'Bitter',serif;font-size:26px;font-weight:700;color:var(--amber);margin-bottom:2px}
+    .fact span{font-size:13px;color:#B9C4B6;letter-spacing:.05em;text-transform:uppercase}
+
+    .section{padding:88px 40px;max-width:1140px;margin:0 auto}
+    .section-label{font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:12px}
+    h2{font-size:clamp(28px,3.6vw,42px);font-weight:700;color:var(--pine);margin-bottom:18px}
+    .lede{font-size:18.5px;color:var(--mid);max-width:660px}
+    .split{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+    .split img{width:100%;height:100%;min-height:380px;object-fit:cover;border-radius:4px;display:block}
+    .split p+p{margin-top:16px}
+
+    .amenities{background:var(--sand)}
+    .amenity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:44px}
+    .amenity{background:var(--cream);border:1px solid var(--line);border-radius:4px;padding:28px 26px;transition:box-shadow .2s,transform .2s}
+    .amenity:hover{box-shadow:0 8px 26px rgba(31,61,43,.1);transform:translateY(-2px)}
+    .amenity .ico{font-size:26px;line-height:1;margin-bottom:14px;display:block}
+    .amenity h3{font-size:19px;font-weight:600;color:var(--pine);margin-bottom:8px}
+    .amenity p{font-size:15px;color:var(--mid);line-height:1.6}
+
+    .sites-specs{list-style:none;margin-top:26px}
+    .sites-specs li{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:16px}
+    .sites-specs li::before{content:'✓';color:var(--amber);font-weight:700}
+
+    .gameday{background:var(--pine);color:#DCE4D8;padding:80px 40px}
+    .gameday-inner{max-width:1140px;margin:0 auto}
+    .gameday h2{color:#fff}
+    .gameday .lede{color:#C3CFBE}
+    .gameday-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:40px}
+    .gameday-card{background:rgba(255,255,255,.06);border-left:3px solid var(--amber);padding:24px 22px;border-radius:0 4px 4px 0}
+    .gameday-card h4{font-size:17px;color:var(--amber);margin-bottom:8px;font-weight:600}
+    .gameday-card p{font-size:15px;color:#BFCBBC;line-height:1.6}
+
+    .rates-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:44px}
+    .rate-card{border:1px solid var(--line);border-radius:4px;padding:32px 28px;background:var(--cream);display:flex;flex-direction:column}
+    .rate-card.featured{border:2px solid var(--amber);position:relative}
+    .rate-card.featured::after{content:'Most popular';position:absolute;top:-11px;left:28px;background:var(--amber);color:#fff;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px}
+    .rate-card h3{font-size:21px;color:var(--pine);margin-bottom:6px;font-weight:600}
+    .rate-card .price{font-family:'Bitter',serif;font-size:36px;font-weight:700;color:var(--pine);margin:14px 0 4px}
+    .rate-card .price small{font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:var(--mid)}
+    .rate-card p{font-size:15px;color:var(--mid);margin-bottom:18px}
+    .rate-card ul{list-style:none;margin-bottom:24px;flex-grow:1}
+    .rate-card li{font-size:14.5px;color:var(--mid);padding:6px 0;display:flex;gap:9px}
+    .rate-card li::before{content:'•';color:var(--amber);font-weight:700}
+    .rate-note{margin-top:30px;background:var(--sand);border-left:3px solid var(--amber);padding:20px 24px;border-radius:0 4px 4px 0;font-size:15.5px;color:#3F4A3D}
+
+    .booking{background:var(--sand);padding:88px 40px}
+    .booking-inner{max-width:1140px;margin:0 auto;text-align:center}
+    .booking .lede{margin:0 auto 40px}
+    .firefly-frame{background:var(--cream);border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:0 10px 40px rgba(31,61,43,.09);min-height:560px}
+    .firefly-frame iframe{width:100%;min-height:560px;border:0;display:block}
+    .firefly-fallback{padding:70px 32px;text-align:center}
+    .firefly-fallback .ico{font-size:40px;display:block;margin-bottom:16px}
+    .firefly-fallback h3{font-size:23px;color:var(--pine);margin-bottom:12px}
+    .firefly-fallback p{color:var(--mid);max-width:520px;margin:0 auto 26px;font-size:16px}
+    .firefly-fallback code{background:var(--sand);padding:2px 7px;border-radius:3px;font-size:14px;color:var(--amber-dk)}
+
+    .gallery{padding:88px 40px;max-width:1140px;margin:0 auto}
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:40px}
+    .photo{position:relative;overflow:hidden;border-radius:4px}
+    .photo img{width:100%;height:280px;object-fit:cover;display:block;transition:transform .5s}
+    .photo:hover img{transform:scale(1.04)}
+    .photo figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(20,37,25,.85));color:#fff;font-size:15px;font-weight:600;padding:26px 16px 14px}
+
+    .location{background:var(--sand);padding:88px 40px}
+    .location-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+    .addr{font-family:'Bitter',serif;font-size:24px;font-weight:600;color:var(--pine);line-height:1.4;margin:18px 0 22px}
+    .dist{list-style:none;margin:24px 0}
+    .dist li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--mid)}
+    .dist li b{color:var(--pine);font-weight:600}
+    .map-wrap{border-radius:5px;overflow:hidden;border:1px solid var(--line);box-shadow:0 8px 30px rgba(31,61,43,.08)}
+    .map-wrap iframe{width:100%;height:430px;border:0;display:block}
+
+    .know-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:40px}
+    .know{border-top:3px solid var(--amber);padding-top:18px}
+    .know h4{font-size:16.5px;color:var(--pine);margin-bottom:7px;font-weight:600}
+    .know p{font-size:14.5px;color:var(--mid);line-height:1.6}
+
+    .contact{background:var(--pine);padding:88px 40px}
+    .contact-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+    .contact h2{color:#fff}
+    .contact-left p{color:#C3CFBE;margin-bottom:22px}
+    .contact-left .phone-big{display:block;font-family:'Bitter',serif;font-size:34px;font-weight:700;color:var(--amber);text-decoration:none;margin-top:8px}
+    .contact-left .phone-big:hover{color:#fff}
+    .contact-left .email{color:#C3CFBE;text-decoration:none;border-bottom:1px solid rgba(217,127,48,.6)}
+    form{display:flex;flex-direction:column;gap:15px;background:var(--cream);padding:32px;border-radius:5px}
+    label{font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--mid);margin-bottom:5px;display:block}
+    input,select,textarea{width:100%;padding:13px 15px;border:1px solid var(--line);background:#fff;font-family:'Inter',sans-serif;font-size:16px;color:var(--ink);outline:none;border-radius:3px;transition:border-color .2s;appearance:none}
+    input:focus,select:focus,textarea:focus{border-color:var(--amber)}
+    textarea{resize:vertical;min-height:110px}
+    .form-submit{background:var(--amber);color:#fff;font-family:'Inter',sans-serif;font-size:16.5px;font-weight:600;padding:15px;border:none;border-radius:3px;cursor:pointer;transition:background .2s}
+    .form-submit:hover{background:var(--amber-dk)}
+    .form-note{font-size:12.5px;color:#9A9A90;text-align:center}
+
+    footer{background:var(--pine-dk);color:#9BA895;padding:44px 40px;text-align:center;font-size:14px}
+    footer img{height:60px;margin-bottom:18px;opacity:.95}
+    footer a{color:var(--amber);text-decoration:none}
+    footer .fine{margin-top:14px;font-size:12.5px;color:#6E7A6A}
+
+    .fade-in{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+
+    @media(max-width:900px){
+      nav{display:none}
+      .facts-inner{grid-template-columns:repeat(2,1fr)}
+      .fact{border-right:1px solid rgba(255,255,255,.09);border-bottom:1px solid rgba(255,255,255,.09)}
+      .split,.location-inner,.contact-inner{grid-template-columns:1fr;gap:36px}
+      .split img{min-height:260px}
+    }
+    @media(max-width:768px){
+      header{padding:12px 18px}
+      .brand img{height:44px}
+      .hero{min-height:520px}
+      .hero-content{padding:56px 20px}
+      .section,.gallery{padding:60px 20px}
+      .gameday,.booking,.location,.contact{padding:60px 20px}
+      .btn-ghost{margin-left:0;margin-top:12px}
+      .hero-actions{flex-direction:column;align-items:stretch}
+      .hero-actions .btn{width:100%}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .fade-in{opacity:1;transform:none;transition:none}
+      .btn:hover{transform:none}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    1919 N Jardot Rd, Stillwater, OK &nbsp;·&nbsp; Free WiFi &nbsp;·&nbsp; 50 Amp &nbsp;·&nbsp; Daily · Weekly · Monthly
+    &nbsp;|&nbsp; <a href="#book" data-book>Check Availability</a>
+  </div>
+
+  <header>
+    <a class="brand" href="#top">
+      <!-- LOGO PLACEHOLDER — replace assets/logo-placeholder.svg with the real logo -->
+      <img src="assets/logo-placeholder.svg" alt="Wickfield Park — RV Park, Stillwater, Oklahoma">
+    </a>
+    <nav>
+      <a href="#park">The Park</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#rates">Rates</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-book" href="#book" data-book>Book Your Site</a>
+  </header>
+
+  <section class="hero" id="top">
+    <img class="hero-img" src="assets/img/hero.svg" alt="Wickfield Park RV sites at sunset in Stillwater, Oklahoma">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="eyebrow">Stillwater, Oklahoma</div>
+      <h1>Room to Stretch Out.<br><em>Quiet Enough to Hear It.</em></h1>
+      <p class="hero-sub">Eleven oversized pull-through sites on the quiet edge of Stillwater — 50 amp power, free WiFi, a dog park and a chipping green. Big rigs welcome. No backing in, no tight turns, no traffic noise.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="#book" data-book>Check Availability</a>
+        <a class="btn btn-ghost btn-lg" href="#rates">View Rates</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="facts">
+    <div class="facts-inner">
+      <div class="fact"><strong>11</strong><span>Pull-Through Sites</span></div>
+      <div class="fact"><strong>50A</strong><span>Electric Service</span></div>
+      <div class="fact"><strong>Free</strong><span>Park-Wide WiFi</span></div>
+      <div class="fact"><strong>Dog</strong><span>Park On Site</span></div>
+      <div class="fact"><strong>Golf</strong><span>Chipping Green</span></div>
+    </div>
+  </div>
+
+  <div class="section fade-in" id="park">
+    <div class="split">
+      <div>
+        <div class="section-label">The Park</div>
+        <h2>A country stay, minutes from town</h2>
+        <p class="lede">Wickfield Park sits right at the edge of the Stillwater city limits on N Jardot Rd — far enough out that evenings are genuinely quiet, close enough that campus, groceries and dinner are a short drive away.</p>
+        <p style="color:var(--mid);margin-top:18px">We kept it small on purpose. Eleven sites means there's always room between rigs, the awning side stays open, and you're never listening to a neighbor's generator through the wall. It's a park built for people who want space — long-haul travelers passing through, contractors on a monthly stay, families in town for an Oklahoma State weekend, and snowbirds who'd rather not park in a lot.</p>
+        <p style="color:var(--mid)">Every site is a pull-through and every site is oversized, so a 45-foot coach with a toad pulls straight in, levels up, and stays hitched if you want it to.</p>
+      </div>
+      <img src="assets/img/pull-through.svg" alt="Oversized pull-through RV site at Wickfield Park">
+    </div>
+  </div>
+
+  <div class="amenities" id="amenities">
+    <div class="section fade-in">
+      <div class="section-label">What's Here</div>
+      <h2>Amenities</h2>
+      <p class="lede">The things that actually matter on a long stay — done properly.</p>
+      <div class="amenity-grid">
+        <div class="amenity">
+          <span class="ico">🚐</span>
+          <h3>11 Oversized Pull-Throughs</h3>
+          <p>Every site is a pull-through with room for a full-length coach plus a towed vehicle. No backing in, no shoehorning, no 3-point turns at midnight.</p>
+        </div>
+        <div class="amenity">
+          <span class="ico">⚡</span>
+          <h3>50 Amp Electric</h3>
+          <p>Full 50 amp service at every site — run both air conditioners through an Oklahoma August without thinking about it.</p>
+        </div>
+        <div class="amenity">
+          <span class="ico">📶</span>
+          <h3>Free WiFi</h3>
+          <p>Park-wide wireless internet included with every stay, daily through monthly. No add-on fee, no daily code.</p>
+        </div>
+        <div class="amenity">
+          <span class="ico">🐕</span>
+          <h3>Dog Park</h3>
+          <p>A fenced on-site dog park so your dog gets off the leash and out of the rig — one of the few in Stillwater attached to an RV park.</p>
+        </div>
+        <div class="amenity">
+          <span class="ico">⛳</span>
+          <h3>Chipping Green</h3>
+          <p>A real chipping green on the property. Grab a wedge and a bucket of balls and kill an hour before dinner.</p>
+        </div>
+        <div class="amenity">
+          <span class="ico">🌾</span>
+          <h3>Quiet, Rural Setting</h3>
+          <p>Open sky, room between sites, and no highway noise — but still inside the reach of town for everything you need.</p>
+        </div>
+        <div class="amenity">
+          <span class="ico">🏈</span>
+          <h3>Close to OSU</h3>
+          <p>A short drive to Oklahoma State's campus and Boone Pickens Stadium — a favorite base for game weekends, graduation and move-in.</p>
+        </div>
+        <div class="amenity">
+          <span class="ico">🗓️</span>
+          <h3>Daily · Weekly · Monthly</h3>
+          <p>Stay a night on your way through, a week for an event, or settle in by the month at a long-stay rate.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section fade-in" id="sites">
+    <div class="split">
+      <img src="assets/img/sunset.svg" alt="Evening at Wickfield Park RV Park in Stillwater">
+      <div>
+        <div class="section-label">The Sites</div>
+        <h2>Built for big rigs</h2>
+        <p class="lede">Level, oversized, and easy to get into after a long day of driving.</p>
+        <!-- TODO: confirm exact site length, width, surface (gravel/concrete), and whether water & sewer are full hookup at every site. Placeholders below reflect what we know today. -->
+        <ul class="sites-specs">
+          <li>Pull-through access at all 11 sites</li>
+          <li>Oversized footprint — room for the coach, the toad and the awning</li>
+          <li>50 amp electric service</li>
+          <li>Free park-wide WiFi</li>
+          <li>Pet friendly, with a fenced dog park on site</li>
+          <li>Quiet hours kept — this is a small, calm park</li>
+        </ul>
+        <a class="btn btn-outline btn-lg" style="margin-top:28px" href="#book" data-book>See Live Availability</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="gameday">
+    <div class="gameday-inner fade-in">
+      <div class="section-label">Cowboy Country</div>
+      <h2>In town for an Oklahoma State weekend?</h2>
+      <p class="lede">Football Saturdays, Homecoming, graduation and move-in weekends fill Stillwater fast. Eleven sites go quickly — book early, and check the calendar for the dates you need.</p>
+      <div class="gameday-grid">
+        <div class="gameday-card">
+          <h4>Game Weekends</h4>
+          <p>Park the rig, run the grill, and make the short drive to campus instead of fighting for a spot near the stadium.</p>
+        </div>
+        <div class="gameday-card">
+          <h4>Graduation &amp; Move-In</h4>
+          <p>Bring the whole family's rig for commencement weekend or dorm move-in without hunting for a hotel room.</p>
+        </div>
+        <div class="gameday-card">
+          <h4>Event Pricing</h4>
+          <p>Daily and weekly rates vary with the OSU event calendar. Live pricing for your exact dates shows up in the booking calendar.</p>
+        </div>
+        <div class="gameday-card">
+          <h4>Book Early</h4>
+          <p>With only eleven sites, big event weekends sell out well ahead. If your dates are set, lock them in.</p>
+        </div>
+      </div>
+      <a class="btn btn-primary btn-lg" style="margin-top:38px" href="#book" data-book>Check Event Dates</a>
+    </div>
+  </div>
+
+  <div class="section fade-in" id="rates">
+    <div class="section-label">Rates</div>
+    <h2>Daily, weekly &amp; monthly</h2>
+    <p class="lede">Straightforward pricing with WiFi and 50 amp included. Daily and weekly rates move with the Oklahoma State event schedule, so the booking calendar is always the source of truth for your dates.</p>
+    <!-- TODO: replace the "—" placeholders below with real starting rates, and confirm whether monthly is metered electric or included. -->
+    <div class="rates-grid">
+      <div class="rate-card">
+        <h3>Nightly</h3>
+        <div class="price">$—<small> / night</small></div>
+        <p>A night or a few — perfect for passing through or a short trip into town.</p>
+        <ul>
+          <li>50 amp electric included</li>
+          <li>Free WiFi</li>
+          <li>Dog park &amp; chipping green access</li>
+          <li>Rate varies by date &amp; OSU events</li>
+        </ul>
+        <a class="btn btn-outline" style="padding:13px 20px" href="#book" data-book>Check Nightly Rate</a>
+      </div>
+      <div class="rate-card featured">
+        <h3>Weekly</h3>
+        <div class="price">$—<small> / week</small></div>
+        <p>Seven nights for less than seven nightly rates — the sweet spot for an event week or a work stint.</p>
+        <ul>
+          <li>Everything in the nightly rate</li>
+          <li>Discounted vs. nightly</li>
+          <li>Popular for OSU event weeks</li>
+          <li>Rate varies by date &amp; OSU events</li>
+        </ul>
+        <a class="btn btn-primary" style="padding:13px 20px" href="#book" data-book>Check Weekly Rate</a>
+      </div>
+      <div class="rate-card">
+        <h3>Monthly</h3>
+        <div class="price">$—<small> / month</small></div>
+        <p>Our best value for long stays — travel nurses, contractors, students and snowbirds.</p>
+        <ul>
+          <li>Flat monthly rate</li>
+          <li>Free WiFi included</li>
+          <li>Stable, quiet, long-stay friendly</li>
+          <li>Ask about availability &amp; terms</li>
+        </ul>
+        <a class="btn btn-outline" style="padding:13px 20px" href="#contact">Ask About Monthly</a>
+      </div>
+    </div>
+    <p class="rate-note"><strong>About event pricing:</strong> Stillwater fills up around Oklahoma State football games, Homecoming, graduation and move-in weekends, and daily and weekly rates reflect that. Enter your dates in the booking calendar and you'll see the exact price for that stay before you reserve.</p>
+  </div>
+
+  <div class="booking" id="book">
+    <div class="booking-inner fade-in">
+      <div class="section-label">Reservations</div>
+      <h2>Book your site</h2>
+      <p class="lede">Live availability and real-time pricing, powered by Firefly Reservations.</p>
+      <div class="firefly-frame" id="firefly-frame">
+        <!-- Firefly Reservations embed mounts here. See the FIREFLY config in the script at the
+             bottom of this file — set bookingUrl once and every "Book" button on the page
+             points at it automatically. -->
+        <div class="firefly-fallback" id="firefly-fallback">
+          <span class="ico">🗓️</span>
+          <h3>Booking calendar not connected yet</h3>
+          <p>Add your Firefly Reservations booking link to <code>FIREFLY.bookingUrl</code> at the bottom of <code>index.html</code> and the live calendar will load right here. Until then, reservations can be taken by phone.</p>
+          <a class="btn btn-primary btn-lg" href="tel:4050000000">Call to Reserve</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery fade-in">
+    <div class="section-label">The Grounds</div>
+    <h2>A look around</h2>
+    <!-- PHOTO PLACEHOLDERS — swap the src of each <img> for real photos (JPG/WebP, ~1600px wide). -->
+    <div class="gallery-grid">
+      <figure class="photo">
+        <img src="assets/img/pull-through.svg" alt="Oversized pull-through RV sites at Wickfield Park, Stillwater OK">
+        <figcaption>Oversized pull-through sites</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="assets/img/dog-park.svg" alt="Fenced on-site dog park at Wickfield Park">
+        <figcaption>The dog park</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="assets/img/chipping-green.svg" alt="Chipping green at Wickfield Park RV park">
+        <figcaption>The chipping green</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="assets/img/sunset.svg" alt="Quiet rural evening at Wickfield Park in Stillwater, Oklahoma">
+        <figcaption>Quiet country evenings</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="location" id="location">
+    <div class="location-inner">
+      <div class="fade-in">
+        <div class="section-label">Find Us</div>
+        <h2>1919 N Jardot Rd</h2>
+        <p class="addr">Wickfield Park<br>1919 N Jardot Rd<br>Stillwater, OK 74075</p>
+        <p style="color:var(--mid)">We're right on the edge of the Stillwater city limits — a quiet, rural setting with town just down the road.</p>
+        <!-- TODO: verify these drive times before launch. -->
+        <ul class="dist">
+          <li><span>Oklahoma State University campus</span><b>~10 min</b></li>
+          <li><span>Boone Pickens Stadium</span><b>~10 min</b></li>
+          <li><span>Downtown Stillwater</span><b>~10 min</b></li>
+          <li><span>Groceries &amp; fuel</span><b>~5 min</b></li>
+        </ul>
+        <a class="btn btn-outline btn-lg" href="https://www.google.com/maps/dir/?api=1&destination=1919+N+Jardot+Rd,+Stillwater,+OK+74075" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+      <div class="map-wrap fade-in">
+        <iframe
+          title="Map to Wickfield Park, 1919 N Jardot Rd, Stillwater, OK"
+          src="https://www.google.com/maps?q=1919+N+Jardot+Rd,+Stillwater,+OK+74075&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-label">Good To Know</div>
+    <h2>Before you arrive</h2>
+    <!-- TODO: confirm check-in/out times, pet policy details, and any park rules to publish here. -->
+    <div class="know-grid">
+      <div class="know">
+        <h4>Check-In &amp; Check-Out</h4>
+        <p>Check-in and check-out times are confirmed with your reservation. Late arrival? Let us know and we'll leave your site ready.</p>
+      </div>
+      <div class="know">
+        <h4>Pets Welcome</h4>
+        <p>Dogs are welcome and have their own fenced park on site. Please keep pets leashed elsewhere in the park and clean up after them.</p>
+      </div>
+      <div class="know">
+        <h4>Quiet Hours</h4>
+        <p>Quiet is the whole point here. We keep evening quiet hours so every site stays peaceful.</p>
+      </div>
+      <div class="know">
+        <h4>Big Rigs</h4>
+        <p>Every site is an oversized pull-through. If you're running something unusually long, message us and we'll confirm the fit.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-left fade-in">
+        <div class="section-label">Get In Touch</div>
+        <h2>Questions about a stay?</h2>
+        <p>Monthly availability, big-rig fit, event weekends, or anything else — send a note and we'll get right back to you.</p>
+        <p style="color:#C3CFBE;margin-bottom:6px">Prefer to call?</p>
+        <!-- TODO: replace with the real park phone number (update the tel: link, the topbar, the JSON-LD block and the footer too). -->
+        <a class="phone-big" href="tel:4050000000">(405) 000-0000</a>
+        <p style="margin-top:22px">
+          <!-- TODO: replace with the real email address -->
+          <a class="email" href="mailto:info@wickfieldpark.com">info@wickfieldpark.com</a>
+        </p>
+        <p style="margin-top:22px;color:#C3CFBE">1919 N Jardot Rd<br>Stillwater, OK 74075</p>
+      </div>
+      <div class="fade-in">
+        <!-- TODO: replace the Formspree endpoint below with the park's own form ID (formspree.io),
+             or swap in whatever form handler you prefer. -->
+        <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+          <div><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="Jane Smith" required></div>
+          <div><label for="phone">Phone</label><input type="tel" id="phone" name="phone" placeholder="(405) 555-0000" required></div>
+          <div><label for="email">Email</label><input type="email" id="email" name="email" placeholder="jane@email.com"></div>
+          <div>
+            <label for="stay">What kind of stay?</label>
+            <select id="stay" name="stay">
+              <option value="">Select...</option>
+              <option>Nightly</option>
+              <option>Weekly</option>
+              <option>Monthly / long term</option>
+              <option>OSU event weekend</option>
+              <option>Just a question</option>
+            </select>
+          </div>
+          <div><label for="rig">Rig Length (optional)</label><input type="text" id="rig" name="rig" placeholder="e.g. 42 ft Class A + toad"></div>
+          <div><label for="message">Message</label><textarea id="message" name="message" placeholder="Dates you're looking at, or anything we should know."></textarea></div>
+          <button type="submit" class="form-submit">Send Message</button>
+          <p class="form-note">We'll only use your info to answer your question.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <img src="assets/logo-placeholder.svg" alt="Wickfield Park">
+    <p><strong style="color:#D9E1D4">Wickfield Park</strong> &nbsp;·&nbsp; 1919 N Jardot Rd, Stillwater, OK 74075 &nbsp;·&nbsp; <a href="tel:4050000000">(405) 000-0000</a></p>
+    <p style="margin-top:8px">11 oversized pull-through sites &nbsp;·&nbsp; 50 amp &nbsp;·&nbsp; Free WiFi &nbsp;·&nbsp; Dog park &nbsp;·&nbsp; Chipping green</p>
+    <p class="fine">&copy; <span id="year">2026</span> Wickfield Park. All rights reserved. &nbsp;·&nbsp; Reservations powered by Firefly Reservations.</p>
+  </footer>
+
+  <script>
+    /* ------------------------------------------------------------------
+       FIREFLY RESERVATIONS
+       Set bookingUrl to the park's public Firefly booking link, e.g.
+         "https://wickfieldpark.fireflyreservations.com/"
+       (Firefly gives you this URL in Settings → Online Booking.)
+
+       - embed: true  → the booking calendar loads in an iframe on this page.
+       - embed: false → every "Book" button links straight out to Firefly.
+
+       If Firefly gives you a <script> widget snippet instead of a plain URL,
+       paste that snippet inside #firefly-frame (replacing #firefly-fallback)
+       and leave bookingUrl set so the header/nav buttons still work.
+       ------------------------------------------------------------------ */
+    const FIREFLY = {
+      bookingUrl: "",   // ← paste the Firefly booking URL here
+      embed: true
+    };
+
+    (function () {
+      const url = (FIREFLY.bookingUrl || "").trim();
+      const bookLinks = document.querySelectorAll('[data-book]');
+
+      if (url) {
+        if (FIREFLY.embed) {
+          const frame = document.getElementById('firefly-frame');
+          const iframe = document.createElement('iframe');
+          iframe.src = url;
+          iframe.title = 'Wickfield Park reservations — check availability and book';
+          iframe.loading = 'lazy';
+          iframe.setAttribute('allow', 'payment');
+          frame.innerHTML = '';
+          frame.appendChild(iframe);
+        } else {
+          bookLinks.forEach(function (a) {
+            a.href = url;
+            a.target = '_blank';
+            a.rel = 'noopener';
+          });
+        }
+      }
+    })();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(function (el) { observer.observe(el); });
+  </script>
+</body>
+</html>

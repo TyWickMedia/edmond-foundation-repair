@@ -1,0 +1,16 @@
+<!-- PLACEHOLDER IMAGE — swap for a real photo (JPG/WebP, ~1600px wide). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="THE DOG PARK photo placeholder">
+  <defs>
+    <linearGradient id="s" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EBD9B8"/><stop offset="0.55" stop-color="#F5EBD6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#s)"/>
+  <circle cx="930" cy="190" r="70" fill="#D97F30" opacity="0.75"/>
+  <path d="M0 560 L230 420 L430 545 L610 400 L820 560 L1010 470 L1200 585 L1200 800 L0 800 Z" fill="#2E5C40" opacity="0.9"/>
+  <path d="M0 640 L260 545 L520 655 L780 560 L1040 660 L1200 600 L1200 800 L0 800 Z" fill="#1F3D2B"/>
+  <g font-family="Helvetica, Arial, sans-serif" text-anchor="middle">
+    <text x="600" y="726" font-size="34" font-weight="bold" fill="#F5EBD6" letter-spacing="4">THE DOG PARK</text>
+    <text x="600" y="764" font-size="20" fill="#C7D6C6" letter-spacing="3">PHOTO COMING SOON</text>
+  </g>
+</svg>
