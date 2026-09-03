@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wickfield Park | RV Park in Stillwater, OK — Oversized Pull-Through Sites</title>
-  <meta name="description" content="Wickfield Park is a quiet, rural RV park at 1919 N Jardot Rd in Stillwater, OK. 11 oversized pull-through sites, free 50 amp electric, free WiFi, a dog park and a chipping green. Daily, weekly and monthly rates. Now taking reservations.">
+  <meta name="description" content="Wickfield Park is a quiet, rural RV park at 1919 N Jardot Rd in Stillwater, OK. 11 oversized pull-through sites, free 50 amp electric, free WiFi, a dog park and a chipping green. Nightly $60, weekly $250, monthly $500 — electric included. Opening soon.">
   <meta name="keywords" content="RV park Stillwater OK, RV camping Stillwater Oklahoma, OSU game day RV parking, pull through RV sites Stillwater, monthly RV park Stillwater, 50 amp RV park Oklahoma, electric included RV park">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://wickfieldpark.com/">
@@ -47,7 +47,7 @@
       { "@type": "LocationFeatureSpecification", "name": "Golf Chipping Green", "value": true }
     ],
     "petsAllowed": true,
-    "priceRange": "$$"
+    "priceRange": "$60-$500"
   }
   </script>
   <script type="application/ld+json">
@@ -62,11 +62,15 @@
       { "@type": "Question", "name": "How far is Wickfield Park from Oklahoma State University?",
         "acceptedAnswer": { "@type": "Answer", "text": "We are at 1919 N Jardot Rd on the eastern edge of Stillwater, a short drive from the OSU campus and Boone Pickens Stadium." } },
       { "@type": "Question", "name": "Do rates change for OSU football and event weekends?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Nightly and weekly rates vary with the Oklahoma State event calendar — football Saturdays, Homecoming, graduation and move-in weekends are priced differently. Enter your dates in the booking calendar to see the exact rate before you reserve." } },
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Nightly and weekly rates vary with the Oklahoma State event calendar — football Saturdays, Homecoming, graduation and move-in weekends are priced differently. Send us your dates and we will quote them exactly." } },
+      { "@type": "Question", "name": "When does Wickfield Park open?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We are opening soon. An exact date is not set yet, so reservations are not open — send us the dates you are considering and you will hear from us first when the booking calendar goes live." } },
+      { "@type": "Question", "name": "What does it cost to stay at Wickfield Park?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Our standard rates are $60 per night, $250 per week and $500 per month. Electric and WiFi are included in all three. Nightly and weekly rates vary on Oklahoma State event weekends." } },
       { "@type": "Question", "name": "Are pets allowed?",
         "acceptedAnswer": { "@type": "Answer", "text": "Yes, dogs are welcome, and there is a fenced dog park on the property so they can get off the leash." } },
       { "@type": "Question", "name": "Do you offer monthly rates?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Monthly stays are our best value and include electric and WiFi. Monthly sites are limited to eleven total, so availability is worth asking about early." } }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Monthly stays are $500 per month including electric and WiFi, and are our best value. Sites are limited to eleven total, so monthly availability is worth asking about early." } }
     ]
   }
   </script>
@@ -189,6 +193,7 @@
     .rate-card h3{font-size:21px;color:var(--pine);margin-bottom:6px;font-weight:600}
     .rate-card .price{font-family:'Bitter',serif;font-size:34px;font-weight:700;color:var(--pine);margin:14px 0 4px}
     .rate-card .price small{font-family:'Inter',sans-serif;font-size:15px;font-weight:400;color:var(--mid)}
+    .rate-card .rate-sub{font-size:13.5px;color:var(--amber-dk);font-weight:600;margin:0 0 14px}
     .rate-card>p{font-size:15px;color:var(--mid);margin-bottom:18px}
     .rate-card ul{list-style:none;margin-bottom:24px;flex-grow:1}
     .rate-card li{font-size:14.5px;color:var(--mid);padding:6px 0;display:flex;gap:9px}
@@ -199,9 +204,8 @@
     .booking{background:var(--sand);padding:92px 40px}
     .booking-inner{max-width:1140px;margin:0 auto;text-align:center}
     .booking .lede{margin:0 auto 40px}
-    .firefly-frame{background:var(--cream);border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:0 12px 44px rgba(31,61,43,.09);min-height:560px}
+    .firefly-frame,.card-shell{background:var(--cream);border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:0 12px 44px rgba(31,61,43,.09)}
     .firefly-frame iframe{width:100%;min-height:560px;border:0;display:block}
-    .firefly-frame{min-height:0}
     .reserve-card{padding:58px 40px 52px}
     .reserve-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:30px;max-width:900px;margin:0 auto 44px;text-align:left}
     .step{position:relative;padding-left:52px}
@@ -314,7 +318,7 @@
   </svg>
 
   <div class="topbar">
-    Now taking reservations<span class="dot">·</span>1919 N Jardot Rd, Stillwater, OK<span class="dot">·</span>
+    <span data-open-text="Now taking reservations">Opening soon</span><span class="dot">·</span>1919 N Jardot Rd, Stillwater, OK<span class="dot">·</span>
     <a href="tel:+14057476904">(405) 747-6904</a>
   </div>
 
@@ -337,7 +341,7 @@
       <a href="#location">Location</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn btn-book" href="https://app.fireflyreservations.com/reserve/property/WickfieldPark" target="_blank" rel="noopener" data-book>Book Your Site</a>
+    <a class="btn btn-book" href="#contact" data-book data-open-label="Book Your Site" data-open-href>Ask About Dates</a>
   </header>
 
   <section class="hero" id="top">
@@ -348,11 +352,11 @@
       <path d="M0 206 C 240 180, 420 218, 660 206 C 900 194, 1120 224, 1440 200 L1440 250 L0 250 Z" fill="#142519"/>
     </svg>
     <div class="hero-content">
-      <div class="eyebrow"><span class="pip"></span> Now Booking · Stillwater, Oklahoma</div>
+      <div class="eyebrow"><span class="pip"></span> <span data-open-text="Now Booking · Stillwater, Oklahoma">Opening Soon · Stillwater, Oklahoma</span></div>
       <h1>Room to Stretch Out.<br><em>Quiet Enough to Hear It.</em></h1>
-      <p class="hero-sub">Eleven oversized pull-through sites on the quiet edge of Stillwater. Free 50 amp electric, free WiFi, a dog park and a chipping green. Big rigs welcome — no backing in, no tight turns, no traffic noise.</p>
+      <p class="hero-sub">Eleven oversized pull-through sites on the quiet edge of Stillwater. Free 50 amp electric, free WiFi, a dog park and a chipping green. Big rigs welcome — no backing in, no tight turns, no traffic noise. From $60 a night, $500 a month.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary btn-lg" href="https://app.fireflyreservations.com/reserve/property/WickfieldPark" target="_blank" rel="noopener" data-book>Check Availability</a>
+        <a class="btn btn-primary btn-lg" href="#contact" data-book data-open-label="Check Availability" data-open-href>Ask About Dates</a>
         <a class="btn btn-ghost btn-lg" href="#rates">View Rates</a>
       </div>
     </div>
@@ -473,7 +477,7 @@
           <li><b>Pet friendly</b> — with a fenced dog park on site</li>
           <li><b>Quiet hours kept</b> — this is a small, calm park</li>
         </ul>
-        <a class="btn btn-outline btn-lg" style="margin-top:28px" href="https://app.fireflyreservations.com/reserve/property/WickfieldPark" target="_blank" rel="noopener" data-book>See Live Availability</a>
+        <a class="btn btn-outline btn-lg" style="margin-top:28px" href="#contact" data-book data-open-label="See Live Availability" data-open-href>Ask About A Site</a>
       </div>
     </div>
   </div>
@@ -482,7 +486,7 @@
     <div class="gameday-inner fade-in">
       <div class="section-label">Cowboy Country</div>
       <h2>In town for an Oklahoma State weekend?</h2>
-      <p class="lede">Football Saturdays, Homecoming, graduation and move-in weekends fill Stillwater fast. Eleven sites go quickly — book early, and check the calendar for the dates you need.</p>
+      <p class="lede">Football Saturdays, Homecoming, graduation and move-in weekends fill Stillwater fast. Eleven sites go quickly. Get your dates to us early and we'll hold your spot the day reservations open.</p>
       <div class="gameday-grid">
         <div class="gameday-card">
           <h4>Game Weekends</h4>
@@ -494,26 +498,26 @@
         </div>
         <div class="gameday-card">
           <h4>Event Pricing</h4>
-          <p>Nightly and weekly rates vary with the OSU event calendar. Live pricing for your exact dates shows in the booking calendar.</p>
+          <p>Nightly and weekly rates vary with the OSU event calendar. Send us your dates and we'll quote them exactly.</p>
         </div>
         <div class="gameday-card">
           <h4>Book Early</h4>
-          <p>With only eleven sites, the big event weekends sell out well ahead. If your dates are set, lock them in.</p>
+          <p>With only eleven sites, the big event weekends will fill well ahead. If your dates are set, tell us now.</p>
         </div>
       </div>
-      <a class="btn btn-primary btn-lg" style="margin-top:38px" href="https://app.fireflyreservations.com/reserve/property/WickfieldPark" target="_blank" rel="noopener" data-book>Check Event Dates</a>
+      <a class="btn btn-primary btn-lg" style="margin-top:38px" href="#contact" data-book data-open-label="Check Event Dates" data-open-href>Ask About Game Weekends</a>
     </div>
   </div>
 
   <div class="section fade-in" id="rates">
     <div class="section-label">Rates</div>
     <h2>Nightly, weekly &amp; monthly</h2>
-    <p class="lede">Electric and WiFi are included in every rate — there's no metered power and no add-on fees. Nightly and weekly rates move with the Oklahoma State event schedule, so the booking calendar is always the source of truth for your dates.</p>
-    <!-- TODO: replace the "—" placeholders with real starting rates once set. -->
+    <p class="lede">Electric and WiFi are included in every rate — there's no metered power and no add-on fees. Nightly and weekly rates move with the Oklahoma State event schedule — tell us your dates and we'll quote them.</p>
     <div class="rates-grid">
       <div class="rate-card">
         <h3>Nightly</h3>
-        <div class="price">$—<small> / night</small></div>
+        <div class="price">$60<small> / night</small></div>
+        <p class="rate-sub">Standard rate · event weekends vary</p>
         <p>A night or a few — for passing through, or a short trip into town.</p>
         <ul>
           <li>50 amp electric included</li>
@@ -521,11 +525,12 @@
           <li>Dog park &amp; chipping green</li>
           <li>Rate varies by date &amp; OSU events</li>
         </ul>
-        <a class="btn btn-outline" style="padding:13px 20px" href="https://app.fireflyreservations.com/reserve/property/WickfieldPark" target="_blank" rel="noopener" data-book>Check Nightly Rate</a>
+        <a class="btn btn-outline" style="padding:13px 20px" href="#contact" data-book data-open-label="Check Nightly Rate" data-open-href>Ask About Dates</a>
       </div>
       <div class="rate-card featured">
         <h3>Weekly</h3>
-        <div class="price">$—<small> / week</small></div>
+        <div class="price">$250<small> / week</small></div>
+        <p class="rate-sub">About $36 a night · event weeks vary</p>
         <p>Seven nights for less than seven nightly rates — the sweet spot for an event week or a work stint.</p>
         <ul>
           <li>Everything in the nightly rate</li>
@@ -533,11 +538,12 @@
           <li>Popular for OSU event weeks</li>
           <li>Rate varies by date &amp; OSU events</li>
         </ul>
-        <a class="btn btn-primary" style="padding:13px 20px" href="https://app.fireflyreservations.com/reserve/property/WickfieldPark" target="_blank" rel="noopener" data-book>Check Weekly Rate</a>
+        <a class="btn btn-primary" style="padding:13px 20px" href="#contact" data-book data-open-label="Check Weekly Rate" data-open-href>Ask About Dates</a>
       </div>
       <div class="rate-card">
         <h3>Monthly</h3>
-        <div class="price">$—<small> / month</small></div>
+        <div class="price">$500<small> / month</small></div>
+        <p class="rate-sub">About $17 a night · flat rate</p>
         <p>Our best value for long stays — travel nurses, contractors, students and snowbirds.</p>
         <ul>
           <li>Flat rate, electric included</li>
@@ -548,28 +554,48 @@
         <a class="btn btn-outline" style="padding:13px 20px" href="#contact">Ask About Monthly</a>
       </div>
     </div>
-    <p class="rate-note"><strong>About event pricing:</strong> Stillwater fills up around Oklahoma State football games, Homecoming, graduation and move-in weekends, and nightly and weekly rates reflect that. Enter your dates in the booking calendar and you'll see the exact price for that stay before you reserve.</p>
+    <p class="rate-note"><strong>About event pricing:</strong> $60, $250 and $500 are our standard rates. Stillwater fills up around Oklahoma State football games, Homecoming, graduation and move-in weekends, and nightly and weekly rates on those dates are priced separately — ask us and we'll quote your exact dates.</p>
   </div>
 
   <div class="booking" id="book">
     <div class="booking-inner fade-in">
-      <div class="section-label">Reservations</div>
-      <h2>Book your site</h2>
-      <p class="lede">Live availability and real-time pricing, powered by Firefly Reservations.</p>
-      <div class="firefly-frame" id="firefly-frame">
-        <!-- If Firefly permits framing (check on the live site — many booking engines send
-             X-Frame-Options: DENY), flip FIREFLY.embed to true in the script at the bottom of
-             this file and the live calendar replaces this card. -->
-        <div class="reserve-card" id="firefly-fallback">
+
+      <!-- Shown before the park opens. FIREFLY.bookingOpen in the script below swaps these two. -->
+      <div id="book-preopen">
+        <div class="section-label">Reservations</div>
+        <h2>Reservations open soon</h2>
+        <p class="lede">We're finishing the park now. Send us the dates you're thinking about and you'll get first pick when the calendar opens.</p>
+        <div class="card-shell"><div class="reserve-card">
           <div class="reserve-steps">
-            <div class="step"><span class="num">1</span><h4>Pick your dates</h4><p>Choose your arrival and departure — including OSU event weekends.</p></div>
-            <div class="step"><span class="num">2</span><h4>See live pricing</h4><p>The exact rate for those dates, with electric and WiFi included.</p></div>
-            <div class="step"><span class="num">3</span><h4>Reserve your site</h4><p>Confirm online in a couple of minutes and you're on the books.</p></div>
+            <div class="step"><span class="num">1</span><h4>Send us your dates</h4><p>Tell us when you'd like to stay and what you're driving.</p></div>
+            <div class="step"><span class="num">2</span><h4>We'll get back to you</h4><p>As soon as our opening date is set, you'll hear from us first.</p></div>
+            <div class="step"><span class="num">3</span><h4>Book your site</h4><p>Reservations run through Firefly Reservations once the calendar is live.</p></div>
           </div>
-          <a class="btn btn-primary btn-lg reserve-cta" href="https://app.fireflyreservations.com/reserve/property/WickfieldPark" target="_blank" rel="noopener" data-book>Check Availability &amp; Book →</a>
-          <p class="reserve-note">Opens our Firefly Reservations booking page · Or call <a href="tel:+14057476904">(405) 747-6904</a></p>
+          <a class="btn btn-primary btn-lg reserve-cta" href="#contact" data-book data-open-label="Check Availability &amp; Book →" data-open-href>Send Us Your Dates →</a>
+          <p class="reserve-note">Or call <a href="tel:+14057476904">(405) 747-6904</a> &nbsp;·&nbsp; <a href="https://app.fireflyreservations.com/reserve/property/WickfieldPark" target="_blank" rel="noopener">Preview our booking page</a></p>
+        </div></div>
+      </div>
+
+      <!-- Shown once FIREFLY.bookingOpen is true. -->
+      <div id="book-open" hidden>
+        <div class="section-label">Reservations</div>
+        <h2>Book your site</h2>
+        <p class="lede">Live availability and real-time pricing, powered by Firefly Reservations.</p>
+        <div class="firefly-frame" id="firefly-frame">
+          <!-- With FIREFLY.embed set to true, the live calendar replaces this card. Check it on the
+               live site first — many booking engines send X-Frame-Options: DENY and would show blank. -->
+          <div class="reserve-card">
+            <div class="reserve-steps">
+              <div class="step"><span class="num">1</span><h4>Pick your dates</h4><p>Choose your arrival and departure — including OSU event weekends.</p></div>
+              <div class="step"><span class="num">2</span><h4>See live pricing</h4><p>The exact rate for those dates, with electric and WiFi included.</p></div>
+              <div class="step"><span class="num">3</span><h4>Reserve your site</h4><p>Confirm online in a couple of minutes and you're on the books.</p></div>
+            </div>
+            <a class="btn btn-primary btn-lg reserve-cta" href="https://app.fireflyreservations.com/reserve/property/WickfieldPark" target="_blank" rel="noopener">Check Availability &amp; Book →</a>
+            <p class="reserve-note">Opens our Firefly Reservations booking page · Or call <a href="tel:+14057476904">(405) 747-6904</a></p>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 
@@ -579,6 +605,14 @@
     <p class="lede">The things guests ask us most. Anything else, just call or send a note.</p>
     <div class="faq-list">
       <details open>
+        <summary>When do you open?</summary>
+        <p>Soon — we're finishing the park now and don't have an exact date to give yet, so we can't take reservations quite yet. Send us the dates you're thinking about and you'll be the first to hear when the booking calendar opens.</p>
+      </details>
+      <details>
+        <summary>What does it cost to stay?</summary>
+        <p>$60 a night, $250 a week, or $500 a month — and electric and WiFi are included in all three. The weekly rate works out to about $36 a night and the monthly to about $17. Nightly and weekly rates vary on Oklahoma State event weekends.</p>
+      </details>
+      <details>
         <summary>Is electricity included in the rate?</summary>
         <p>Yes. Every site has 50 amp service and electric is included — nightly, weekly or monthly. There's no metered power and no add-on fee, so a long summer stay doesn't come with a surprise bill.</p>
       </details>
@@ -592,7 +626,7 @@
       </details>
       <details>
         <summary>Why do nightly and weekly rates change?</summary>
-        <p>Stillwater fills up around the Oklahoma State calendar — football Saturdays, Homecoming, graduation and move-in weekends. Nightly and weekly rates reflect the date you're booking. Put your dates into the booking calendar and you'll see the exact price before you reserve.</p>
+        <p>Stillwater fills up around the Oklahoma State calendar — football Saturdays, Homecoming, graduation and move-in weekends. Our standard rates are $60 a night and $250 a week; those dates are priced separately. Send us your dates and we'll quote them exactly.</p>
       </details>
       <details>
         <summary>Are dogs allowed?</summary>
@@ -600,7 +634,7 @@
       </details>
       <details>
         <summary>Do you take monthly guests?</summary>
-        <p>Yes, and monthly is our best value. It's popular with travel nurses, contractors, students and snowbirds. With only eleven sites, monthly availability is worth asking about early.</p>
+        <p>Yes — $500 a month, electric and WiFi included, and it's our best value. It's popular with travel nurses, contractors, students and snowbirds. With only eleven sites, monthly availability is worth asking about early.</p>
       </details>
       <details>
         <summary>What's the WiFi like?</summary>
@@ -665,7 +699,7 @@
       <div class="contact-left fade-in">
         <div class="section-label">Get In Touch</div>
         <h2>Questions about a stay?</h2>
-        <p>Monthly availability, big-rig fit, event weekends, or anything else — call, or send a note and we'll get right back to you.</p>
+        <p>Send us the dates you're thinking about and you'll get first pick when reservations open. Monthly stays, big-rig fit, OSU weekends — ask us anything.</p>
         <a class="phone-big" href="tel:+14057476904">(405) 747-6904</a>
         <p style="margin-top:20px">
           <a class="email" href="mailto:ty.wick@gmail.com">ty.wick@gmail.com</a>
@@ -717,45 +751,64 @@
 
   <script>
     /* ------------------------------------------------------------------
-       FIREFLY RESERVATIONS
-       Paste the park's public Firefly booking link into bookingUrl, e.g.
-         "https://wickfieldpark.fireflyreservations.com/"
-       (Firefly provides this under Settings → Online Booking.)
+       FIREFLY RESERVATIONS  ·  one switch runs the whole page
 
-       - embed: true  → the booking calendar loads in an iframe on this page.
-       - embed: false → every "Book" button links straight out to Firefly.
+       bookingOpen: false  → pre-opening mode. The page says "Opening soon",
+                             every call-to-action points at the contact form,
+                             and the booking section invites people to send
+                             their dates.
+       bookingOpen: true   → open for business. Every call-to-action points at
+                             the Firefly booking page and changes its wording,
+                             the page says "Now taking reservations", and the
+                             booking section shows the reserve card.
 
-       Changing bookingUrl here updates every "Book" button on the page. The same URL is also
-       hardcoded on those links so they still work if JavaScript is off — if you change it here,
-       find-and-replace the old URL in this file too.
-
-       If Firefly hands you a <script> widget snippet instead, paste that snippet inside
-       #firefly-frame in place of #firefly-fallback and leave bookingUrl set.
+       embed: only applies once bookingOpen is true. false opens Firefly in a
+       new tab (safe default). true loads their calendar in an iframe on this
+       page — check it on the live site first, because many booking engines
+       send X-Frame-Options: DENY and would leave a blank box.
        ------------------------------------------------------------------ */
     const FIREFLY = {
       bookingUrl: "https://app.fireflyreservations.com/reserve/property/WickfieldPark",
-      embed: false   // ← set true only if Firefly allows this page to frame their booking calendar
+      bookingOpen: false,   // ← flip to true the day reservations open
+      embed: false
     };
 
     (function () {
       var url = (FIREFLY.bookingUrl || "").trim();
-      if (!url) return;
+      if (!FIREFLY.bookingOpen || !url) return;
 
-      if (FIREFLY.embed) {
-        var frame = document.getElementById('firefly-frame');
-        var iframe = document.createElement('iframe');
-        iframe.src = url;
-        iframe.title = 'Wickfield Park reservations — check availability and book';
-        iframe.loading = 'lazy';
-        iframe.setAttribute('allow', 'payment');
-        frame.innerHTML = '';
-        frame.appendChild(iframe);
-      } else {
-        document.querySelectorAll('[data-book]').forEach(function (a) {
+      // point every call-to-action at Firefly and use its open-for-business wording
+      document.querySelectorAll('[data-book]').forEach(function (a) {
+        if (a.hasAttribute('data-open-href')) {
           a.href = url;
           a.target = '_blank';
           a.rel = 'noopener';
-        });
+        }
+        var label = a.getAttribute('data-open-label');
+        if (label) a.innerHTML = label;
+      });
+
+      // swap the wording that only makes sense before opening
+      document.querySelectorAll('[data-open-text]').forEach(function (el) {
+        el.textContent = el.getAttribute('data-open-text');
+      });
+
+      // swap the booking section itself
+      var pre = document.getElementById('book-preopen');
+      var open = document.getElementById('book-open');
+      if (pre && open) { pre.hidden = true; open.hidden = false; }
+
+      if (FIREFLY.embed) {
+        var frame = document.getElementById('firefly-frame');
+        if (frame) {
+          var iframe = document.createElement('iframe');
+          iframe.src = url;
+          iframe.title = 'Wickfield Park reservations — check availability and book';
+          iframe.loading = 'lazy';
+          iframe.setAttribute('allow', 'payment');
+          frame.innerHTML = '';
+          frame.appendChild(iframe);
+        }
       }
     })();
 
