@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Wickfield Park — Stillwater, Oklahoma">
+  <defs>
+    <clipPath id="disc"><circle cx="120" cy="120" r="80"/></clipPath>
+    <path id="arcTop" d="M 21,120 A 99,99 0 0 1 219,120"/>
+    <path id="arcBottom" d="M 26,120 A 94,94 0 0 0 214,120"/>
+  </defs>
+  <circle cx="120" cy="120" r="118" fill="#1F3D2B"/>
+  <circle cx="120" cy="120" r="80" fill="#F5EBD6"/>
+  <g clip-path="url(#disc)">
+    <circle cx="120" cy="104" r="23" fill="#D97F30"/>
+    <path d="M36 122 Q 74 104 110 120 Q 148 137 204 114 L 204 210 L 36 210 Z" fill="#4C7A57"/>
+    <path d="M36 144 Q 78 130 120 144 Q 162 158 204 140 L 204 210 L 36 210 Z" fill="#1F3D2B"/>
+    <path d="M113 144 L 127 144 L 151 205 L 89 205 Z" fill="#EFE2C8"/>
+    <path d="M120 150 v8 M120 166 v9 M120 184 v10" stroke="#D97F30" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <circle cx="120" cy="120" r="80" fill="none" stroke="#F5EBD6" stroke-width="2.5"/>
+  <circle cx="120" cy="120" r="85" fill="none" stroke="#D97F30" stroke-width="1.5"/>
+  <circle cx="120" cy="120" r="112" fill="none" stroke="#D97F30" stroke-width="1.5"/>
+  <circle cx="21.5" cy="120" r="4" fill="#D97F30"/>
+  <circle cx="218.5" cy="120" r="4" fill="#D97F30"/>
+  <text font-family="Bitter, Georgia, serif" font-size="20.5" font-weight="700" fill="#F5EBD6" letter-spacing="2.4">
+    <textPath href="#arcTop" startOffset="50%" text-anchor="middle">WICKFIELD PARK</textPath></text>
+  <text font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#D9C79F" letter-spacing="3.4">
+    <textPath href="#arcBottom" startOffset="50%" text-anchor="middle">STILLWATER · OKLAHOMA</textPath></text>
+</svg>

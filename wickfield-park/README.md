@@ -2,13 +2,14 @@
 
 Marketing site for **Wickfield Park**, an RV park at 1919 N Jardot Rd, Stillwater, OK.
 
-11 oversized pull-through sites · 50 amp electric · free WiFi · dog park · chipping green ·
-daily, weekly and monthly rates.
+11 oversized pull-through sites · free 50 amp electric · free WiFi · dog park · chipping green ·
+nightly, weekly and monthly rates · reservations through Firefly.
 
 ## Stack
 
-A single static page — `index.html` with inline CSS and a few lines of vanilla JS. No build step,
-no dependencies. Open the file in a browser to preview, or:
+One static page — `index.html` with inline CSS and a few lines of vanilla JS. No build step, no
+dependencies, no third-party requests except the Google Maps embed. Preview it by opening the file,
+or:
 
 ```
 python3 -m http.server 8000    # then visit http://localhost:8000
@@ -17,66 +18,62 @@ python3 -m http.server 8000    # then visit http://localhost:8000
 ## Files
 
 ```
-index.html                       the whole site
-assets/logo-placeholder.svg      PLACEHOLDER logo (header + footer + favicon)
-assets/img/hero.svg              PLACEHOLDER hero image
-assets/img/pull-through.svg      PLACEHOLDER photo
-assets/img/dog-park.svg          PLACEHOLDER photo
-assets/img/chipping-green.svg    PLACEHOLDER photo
-assets/img/sunset.svg            PLACEHOLDER photo
-robots.txt / sitemap.xml         basic SEO files (update the domain)
+index.html                    the whole site
+assets/logo.svg               primary horizontal lockup (dark, for light backgrounds)
+assets/logo-reversed.svg      same lockup in cream, for dark backgrounds
+assets/logo-mark.svg          the "field" mark on its own — favicon, profile pictures
+assets/logo-badge.svg         alternate: the horizon roundel, for signage and merch
+assets/logo-wordmark.svg      alternate: wordmark with horizon rule, no mark
+assets/og-card.png            1200×630 share card for Facebook / texts / link previews
+assets/fonts/                 Bitter + Inter, self-hosted (82 KB total)
+robots.txt / sitemap.xml      basic SEO files
 ```
 
-## Connecting Firefly Reservations
+The header and footer logos are inlined directly in `index.html` (so they pick up the webfont).
+If you change the logo, update those two inline `<svg>` blocks as well as the files above.
 
-The booking section (`#book`) is wired up and waiting on one value. At the bottom of `index.html`:
+## Reservations (Firefly)
+
+Wired up and live. The booking link lives in one place, at the bottom of `index.html`:
 
 ```js
 const FIREFLY = {
-  bookingUrl: "",   // ← paste the Firefly booking URL here
-  embed: true
+  bookingUrl: "https://app.fireflyreservations.com/reserve/property/WickfieldPark",
+  embed: false
 };
 ```
 
-1. In Firefly, find your public online-booking URL (Settings → Online Booking).
-2. Paste it into `bookingUrl`.
-3. Leave `embed: true` to load the calendar in an iframe on the page, or set it to `false` to
-   send every "Book" button straight out to Firefly in a new tab.
+Every "Book" button carries `data-book` and is pointed at that URL. The same URL is also hardcoded
+on those links so they keep working with JavaScript off — **if you change the URL, change it in the
+config and find-and-replace the old one in the file.**
 
-Every booking button on the page (top bar, header, hero, sites, game-day, rates) is marked
-`data-book`, so this one value drives all of them.
+`embed: false` opens Firefly in a new tab. Set it to `true` to load their calendar in an iframe on
+the page instead — but check it on the live site first: many booking engines send
+`X-Frame-Options: DENY`, which would render a blank box. If Firefly gives you a `<script>` widget
+snippet instead of a URL, paste it inside `#firefly-frame` in place of the reserve card.
 
-If Firefly provides a `<script>` widget snippet rather than a plain URL, paste the snippet inside
-`#firefly-frame` in place of `#firefly-fallback`, and still set `bookingUrl` so the nav buttons work.
+## Still to do before launch
 
-## Before launch — placeholders to replace
+Search the file for `TODO`.
 
-Search the file for `TODO` and `PLACEHOLDER`. In short:
-
-- [ ] **Logo** — replace `assets/logo-placeholder.svg` with the real logo (keep the filename, or
-      update the two `<img>` refs). SVG preferred; PNG ~600×180 with transparency also fine.
-- [ ] **Photos** — swap the five placeholder SVGs in `assets/img/` for real photos (~1600px wide).
-- [ ] **Phone number** — appears in the top bar, booking fallback, contact section, footer and the
-      JSON-LD block. Currently `(405) 000-0000`.
-- [ ] **Email address** — currently `info@wickfieldpark.com`.
-- [ ] **Rates** — the three rate cards show `$—`. Drop in real starting rates.
-- [ ] **Firefly booking URL** — see above.
-- [ ] **Contact form** — the form posts to a Formspree placeholder
-      (`https://formspree.io/f/REPLACE_WITH_FORM_ID`). Create a free Formspree form and paste the ID,
-      or swap in another handler.
-- [ ] **Domain** — `wickfieldpark.com` is assumed in the canonical tag, Open Graph tags,
-      `robots.txt` and `sitemap.xml`.
-- [ ] **ZIP code** — 74075 assumed for N Jardot Rd; confirm.
-- [ ] **Site specs** — exact site length/width, surface, and whether water & sewer are full hookup
-      at every site.
-- [ ] **Drive times** — the location section lists approximate times to campus, the stadium and
-      downtown; verify before launch.
-- [ ] **Check-in / check-out times and park rules** — the "Before you arrive" section is generic.
+- [ ] **Rates** — the three cards show `$—`. Drop in real nightly / weekly / monthly starting rates.
+- [ ] **Contact form** — it posts to `https://formspree.io/f/REPLACE_WITH_FORM_ID` and will not
+      deliver until that's a real form ID. Create a free form at formspree.io, or swap in another
+      handler.
+- [ ] **Drive times** — the location section lists ~10 min to campus / stadium / downtown. Verify.
+- [ ] **Check-in / check-out times** and any park rules to publish.
+- [ ] **Photos** — the site is deliberately photo-free for now (drawn horizons and icons instead).
+      When photos exist, the natural slots are the hero background, the illustrated panel in
+      "Built for big rigs", and a new gallery section.
+- [ ] **Site specs** — exact length/width, surface, and whether water & sewer are at every site.
+      The page currently claims electric and WiFi only.
+- [ ] **Opening date** — the top bar and hero say "Now taking reservations." Add a date if you want
+      one.
 
 ## Hosting
 
-Any static host works. For GitHub Pages: Settings → Pages → deploy from `main`, root folder. A
-custom domain is set by adding a `CNAME` file containing the domain and pointing DNS at GitHub.
+Any static host. For GitHub Pages: Settings → Pages → deploy from `main`, root folder. For the
+wickfieldpark.com domain, add a `CNAME` file containing `wickfieldpark.com` and point DNS at GitHub.
 
 ---
 

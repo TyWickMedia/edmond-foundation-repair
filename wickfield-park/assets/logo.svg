@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 132" width="480" height="132" role="img" aria-label="Wickfield Park — RV Park, Stillwater, Oklahoma">
+  <rect x="2" y="12" width="108" height="108" rx="20" fill="#1F3D2B"/>
+  <circle cx="56" cy="45" r="11.5" fill="#D97F30"/>
+  <path d="M20 62 L 38 92 L 58 68 L 78 92 L 96 62" fill="none" stroke="#F5EBD6" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M23 105 h70" stroke="#4C7A57" stroke-width="4" stroke-linecap="round"/>
+  <text x="132" y="62" font-family="Bitter, Georgia, serif" font-size="38" font-weight="700" fill="#1F3D2B" letter-spacing="0.5">WICKFIELD</text>
+  <text x="134" y="97" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#D97F30" letter-spacing="7.4">PARK · STILLWATER, OK</text>
+</svg>

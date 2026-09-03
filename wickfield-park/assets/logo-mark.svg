@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Wickfield Park mark">
+  <rect width="200" height="200" rx="36" fill="#1F3D2B"/>
+  <circle cx="100" cy="62" r="21" fill="#D97F30"/>
+  <path d="M30 94 L 63 150 L 100 106 L 137 150 L 170 94" fill="none" stroke="#F5EBD6" stroke-width="11.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M36 172 h128" stroke="#4C7A57" stroke-width="7" stroke-linecap="round"/>
+</svg>
