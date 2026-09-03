@@ -65,9 +65,9 @@ gives you a `<script>` widget snippet instead of a URL, paste it inside `#firefl
 
 Search the file for `TODO`.
 
-- [ ] **Contact form** — it posts to `https://formspree.io/f/REPLACE_WITH_FORM_ID` and will not
-      deliver until that's a real form ID. This is the only thing on the page that is actively
-      broken: with the park pre-opening, every call-to-action leads here.
+- [ ] **Test the contact form** — it posts to Formspree form `xppzrglw`. Formspree needs you to
+      confirm the first submission from a new form, so send yourself a test message once the site is
+      on a real domain. With the park pre-opening, every call-to-action leads here.
 - [ ] **Drive times** — the location section lists ~10 min to campus / stadium / downtown. Verify.
 - [ ] **Check-in / check-out times** and any park rules to publish.
 - [ ] **Photos** — the site is deliberately photo-free for now (drawn horizons and icons instead).

@@ -707,9 +707,11 @@
         <p style="margin-top:20px;color:#B6C4B2">1919 N Jardot Rd<br>Stillwater, OK 74075</p>
       </div>
       <div class="fade-in">
-        <!-- TODO: replace the Formspree endpoint with the park's own form ID (formspree.io),
-             or swap in another form handler. Until then the form won't deliver. -->
-        <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+        <form action="https://formspree.io/f/xppzrglw" method="POST">
+          <!-- Formspree conventions: _subject sets the email subject line, _gotcha is a hidden
+               honeypot that traps spam bots. Neither is shown to visitors. -->
+          <input type="hidden" name="_subject" value="Wickfield Park — website enquiry">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
           <div><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="Jane Smith" required></div>
           <div><label for="phone">Phone</label><input type="tel" id="phone" name="phone" placeholder="(405) 555-0000" required></div>
           <div><label for="email">Email</label><input type="email" id="email" name="email" placeholder="jane@email.com"></div>
