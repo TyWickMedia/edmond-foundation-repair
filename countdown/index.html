@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Countdown to move day: Tuesday 13 October 2026, 10:00 PM.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#265C86">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Move Day">
+<style>
+  html,body{margin:0}
+  body{min-height:100dvh;font:14px/1.5 system-ui,sans-serif}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+</style>
+<title>Move Day Manifest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&family=Saira+Condensed:wght@600;700;800&display=swap">
+<style>
+  :root{
+    --paper:#E9E3D5;
+    --card:#F5F0E6;
+    --ink:#22201B;
+    --ink-soft:#5D5849;
+    --rule:#C6BCA7;
+    --rule-soft:#D8D0BE;
+    --strap:#265C86;
+    --stencil:#B03A22;
+    --tape:rgba(38,92,134,.10);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#171610;
+      --card:#211F18;
+      --ink:#EBE5D6;
+      --ink-soft:#9A9280;
+      --rule:#3D3A2F;
+      --rule-soft:#2E2C23;
+      --strap:#7FB2DA;
+      --stencil:#E0714F;
+      --tape:rgba(127,178,218,.12);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#171610;
+    --card:#211F18;
+    --ink:#EBE5D6;
+    --ink-soft:#9A9280;
+    --rule:#3D3A2F;
+    --rule-soft:#2E2C23;
+    --strap:#7FB2DA;
+    --stencil:#E0714F;
+    --tape:rgba(127,178,218,.12);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding:0 16px;
+    padding-block:28px 40px;
+    display:flex;
+    justify-content:center;
+  }
+
+  .sheet{
+    width:100%;
+    max-width:760px;
+    background:var(--card);
+    border:1px solid var(--rule);
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* ---- label header ---- */
+  .head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    flex-wrap:wrap;
+    padding:14px 20px;
+    border-bottom:1px solid var(--rule);
+    background:var(--tape);
+  }
+  .stamp{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--strap);
+  }
+  .stamp .dim{color:var(--ink-soft)}
+
+  /* ---- destination block ---- */
+  .dest{
+    padding:26px 20px 20px;
+    border-bottom:1px solid var(--rule-soft);
+  }
+  .key{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 6px;
+  }
+  h1{
+    font-family:"Saira Condensed","Barlow Condensed",Impact,sans-serif;
+    font-weight:800;
+    font-size:clamp(38px,10vw,68px);
+    line-height:.92;
+    letter-spacing:.005em;
+    text-transform:uppercase;
+    text-wrap:balance;
+    margin:0;
+  }
+  .when{
+    margin:10px 0 0;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:13px;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+  }
+  .when b{color:var(--ink);font-weight:600}
+
+  /* ---- countdown ---- */
+  .clock{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-bottom:1px solid var(--rule-soft);
+  }
+  .cell{
+    padding:22px 8px 18px;
+    text-align:center;
+    border-left:1px solid var(--rule-soft);
+  }
+  .cell:first-child{border-left:0}
+  .num{
+    display:block;
+    font-family:"Saira Condensed","Barlow Condensed",Impact,sans-serif;
+    font-weight:700;
+    font-size:clamp(44px,12vw,86px);
+    line-height:1;
+    font-variant-numeric:tabular-nums;
+    font-feature-settings:"tnum" 1;
+  }
+  .cell.sec .num{color:var(--strap)}
+  .unit{
+    display:block;
+    margin-top:8px;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  /* ---- tape measure ---- */
+  .gauge{padding:22px 20px 24px;border-bottom:1px solid var(--rule-soft)}
+  .gauge-head{
+    display:flex;justify-content:space-between;gap:12px;
+    margin-bottom:10px;
+  }
+  .ruler{
+    position:relative;
+    height:34px;
+    border:1px solid var(--rule);
+    background:var(--paper);
+    overflow:hidden;
+  }
+  .fill{
+    position:absolute;inset:0 auto 0 0;
+    background:var(--tape);
+    border-right:2px solid var(--strap);
+  }
+  .tick{
+    position:absolute;top:0;bottom:0;width:1px;
+    background:var(--rule);
+  }
+  .tick.wk{background:var(--stencil);opacity:.55}
+  .tick.wk::after{
+    content:attr(data-n);
+    position:absolute;top:3px;left:3px;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:9px;font-weight:600;
+    color:var(--stencil);
+  }
+  .gauge-foot{
+    display:flex;justify-content:space-between;gap:12px;
+    margin-top:8px;
+  }
+
+  /* ---- facts ---- */
+  .facts{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+  }
+  .fact{
+    padding:16px 20px 18px;
+    border-left:1px solid var(--rule-soft);
+  }
+  .fact:first-child{border-left:0}
+  .fact .val{
+    font-family:"Saira Condensed","Barlow Condensed",Impact,sans-serif;
+    font-weight:700;
+    font-size:26px;
+    line-height:1.1;
+    font-variant-numeric:tabular-nums;
+  }
+  .fact.hot .val{color:var(--stencil)}
+
+  .foot{
+    padding:14px 20px 16px;
+    border-top:1px solid var(--rule);
+    display:flex;justify-content:space-between;align-items:center;
+    gap:12px;flex-wrap:wrap;
+  }
+  .foot p{margin:0;font-size:12px;color:var(--ink-soft);line-height:1.5;max-width:46ch}
+  button{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--strap);
+    background:transparent;
+    border:1px solid var(--strap);
+    padding:8px 12px;
+    cursor:pointer;
+  }
+  button:hover{background:var(--tape)}
+  button:focus-visible{outline:2px solid var(--stencil);outline-offset:2px}
+
+  .arrived h1{color:var(--stencil)}
+
+  @media (max-width:520px){
+    .clock{grid-template-columns:repeat(2,1fr)}
+    .cell:nth-child(3){border-left:0}
+    .cell:nth-child(-n+2){border-bottom:1px solid var(--rule-soft)}
+    .facts{grid-template-columns:1fr}
+    .fact{border-left:0;border-top:1px solid var(--rule-soft)}
+    .fact:first-child{border-top:0}
+  }
+</style>
+
+</head>
+<body>
+<main class="sheet" id="sheet">
+  <div class="head">
+    <span class="stamp">Move Manifest <span class="dim">/ No. 10-13</span></span>
+    <span class="stamp dim" id="now">--:--:-- --</span>
+  </div>
+
+  <div class="dest">
+    <p class="key">Load out at</p>
+    <h1 id="headline">Move Day</h1>
+    <p class="when">Tuesday <b>13 Oct 2026</b> &middot; <b>10:00 PM</b> &middot; your local time</p>
+  </div>
+
+  <div class="clock" id="clock">
+    <div class="cell"><span class="num" id="d">--</span><span class="unit">Days</span></div>
+    <div class="cell"><span class="num" id="h">--</span><span class="unit">Hours</span></div>
+    <div class="cell"><span class="num" id="m">--</span><span class="unit">Minutes</span></div>
+    <div class="cell sec"><span class="num" id="s">--</span><span class="unit">Seconds</span></div>
+  </div>
+
+  <div class="gauge">
+    <div class="gauge-head">
+      <span class="key" style="margin:0">Packing window</span>
+      <span class="key" style="margin:0" id="pct">--%</span>
+    </div>
+    <div class="ruler" id="ruler" role="img" aria-label="Packing window progress with a marker for each remaining weekend">
+      <div class="fill" id="fill" style="width:0%"></div>
+    </div>
+    <div class="gauge-foot">
+      <span class="key" style="margin:0">9 Sep</span>
+      <span class="key" style="margin:0">Red ticks = Saturdays</span>
+      <span class="key" style="margin:0">13 Oct</span>
+    </div>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><p class="key">Weekends left</p><div class="val" id="weekends">--</div></div>
+    <div class="fact"><p class="key">Total hours</p><div class="val" id="hours">--</div></div>
+    <div class="fact hot"><p class="key">Last full day</p><div class="val">Mon 12 Oct</div></div>
+  </div>
+
+  <div class="foot">
+    <p class="install-hint">Add this to your home screen and it runs full screen, offline, like an app. iPhone: Share, then Add to Home Screen. Android: menu, then Install.</p>
+    <button type="button" id="themeBtn">Flip lights</button>
+  </div>
+</main>
+
+<script>
+(function(){
+  var TARGET = new Date(2026, 9, 13, 22, 0, 0, 0);   // 13 Oct 2026, 10:00 PM local
+  var START  = new Date(2026, 8, 9, 0, 0, 0, 0);     // packing window opens 9 Sep 2026
+
+  var $ = function(id){ return document.getElementById(id); };
+  var pad = function(n){ return n < 10 ? "0" + n : String(n); };
+
+  // Saturday ticks across the packing window
+  (function ticks(){
+    var ruler = $("ruler"), span = TARGET - START, n = 0;
+    var d = new Date(START);
+    d.setDate(d.getDate() + ((6 - d.getDay() + 7) % 7));
+    while (d < TARGET){
+      var el = document.createElement("div");
+      el.className = "tick wk";
+      el.style.left = ((d - START) / span * 100) + "%";
+      el.setAttribute("data-n", ++n);
+      ruler.appendChild(el);
+      d.setDate(d.getDate() + 7);
+    }
+  })();
+
+  function tick(){
+    var now = new Date();
+    var left = TARGET - now;
+
+    $("now").textContent = now.toLocaleTimeString([], {hour:"numeric", minute:"2-digit", second:"2-digit"});
+
+    if (left <= 0){
+      $("sheet").classList.add("arrived");
+      $("headline").textContent = "It's Move Day";
+      ["d","h","m","s"].forEach(function(k){ $(k).textContent = "00"; });
+      $("pct").textContent = "100%";
+      $("fill").style.width = "100%";
+      $("weekends").textContent = "0";
+      $("hours").textContent = "0";
+      return;
+    }
+
+    var sec = Math.floor(left / 1000);
+    $("d").textContent = Math.floor(sec / 86400);
+    $("h").textContent = pad(Math.floor(sec / 3600) % 24);
+    $("m").textContent = pad(Math.floor(sec / 60) % 60);
+    $("s").textContent = pad(sec % 60);
+
+    var pct = Math.max(0, Math.min(100, (now - START) / (TARGET - START) * 100));
+    $("fill").style.width = pct.toFixed(2) + "%";
+    $("pct").textContent = Math.round(pct) + "% packed away";
+
+    var sat = new Date(now);
+    sat.setHours(0,0,0,0);
+    sat.setDate(sat.getDate() + ((6 - sat.getDay() + 7) % 7));
+    var w = 0;
+    while (sat < TARGET){ w++; sat.setDate(sat.getDate() + 7); }
+    $("weekends").textContent = w;
+    $("hours").textContent = Math.floor(sec / 3600).toLocaleString();
+  }
+
+  tick();
+  setInterval(tick, 1000);
+
+  $("themeBtn").addEventListener("click", function(){
+    var root = document.documentElement;
+    var dark = getComputedStyle(root).getPropertyValue("--paper").trim().toLowerCase() === "#171610";
+    root.setAttribute("data-theme", dark ? "light" : "dark");
+  });
+})();
+</script>
+<style>
+  body{padding-block:max(28px,env(safe-area-inset-top)) max(40px,env(safe-area-inset-bottom))}
+  @media (display-mode: standalone){ .install-hint{display:none} }
+</style>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function(){
+      navigator.serviceWorker.register("sw.js").catch(function(){});
+    });
+  }
+</script>
+</body>
+</html>
