@@ -1,4 +1,5 @@
 -- Run once in the Supabase SQL editor.
+-- Also: Authentication -> Sign In / Providers -> turn on "Allow anonymous sign-ins".
 
 create table if not exists profiles (
   id uuid primary key references auth.users(id) on delete cascade,
@@ -7,6 +8,7 @@ create table if not exists profiles (
   address text,
   license text,
   phone text,
+  owner_contact text,      -- where we tell the owner "they accepted" (unverified)
   default_terms text,
   created_at timestamptz not null default now()
 );

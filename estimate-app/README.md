@@ -8,7 +8,7 @@ Twilio + Resend (optional delivery) · PWA, no app store.
 
 ## The flow
 
-1. `/login` — business name + email or cell → 6-digit code → straight into `/new`.
+1. `/login` — business name + cell/email → straight into `/new`. No code, no password (Supabase anonymous sign-in; the device is the account). The contact is only where owner alerts go.
 2. `/new` — one screen. Tap the mic and talk the job (or type it) → editable line items → customer + total → **Send it**.
 3. `/estimate/[id]` — "Text it / Email it" buttons (opens the owner's own messaging app, pre-filled), copy link, status, signature.
 4. `/e/[token]` — what the customer sees. Accept (type or draw signature) or decline. Owner is notified.
@@ -17,7 +17,7 @@ Twilio + Resend (optional delivery) · PWA, no app store.
 
 ## Setup
 
-1. **Supabase**: create a project, run `supabase/schema.sql` in the SQL editor. Enable Email auth (and Phone auth if you want cell sign-up — needs an SMS provider in Supabase). In *Auth → Email Templates → Magic Link*, make sure the email includes `{{ .Token }}` so users get the 6-digit code.
+1. **Supabase**: create a project, run `supabase/schema.sql` in the SQL editor. Turn on **Authentication → Sign In / Providers → Allow anonymous sign-ins**.
 2. `cp .env.example .env.local` and fill in the Supabase keys + `ANTHROPIC_API_KEY`.
 3. `npm install && npm run dev` — open on your phone via your LAN IP or deploy to Vercel (set the same env vars; set `NEXT_PUBLIC_APP_URL` to the deployed URL).
 

@@ -8,6 +8,7 @@ export type Profile = {
   address: string | null;
   license: string | null;
   phone: string | null;
+  owner_contact: string | null;
   default_terms: string | null;
 };
 

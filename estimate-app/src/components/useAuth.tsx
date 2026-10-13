@@ -25,7 +25,8 @@ export function useAuth() {
       let { data: p } = await sb.from("profiles").select("*").eq("id", uid).maybeSingle();
       if (!p) {
         const name = (data.session.user.user_metadata?.business_name as string) || "My Business";
-        const ins = await sb.from("profiles").insert({ id: uid, business_name: name }).select().single();
+        const contact = (data.session.user.user_metadata?.contact as string) || null;
+        const ins = await sb.from("profiles").insert({ id: uid, business_name: name, owner_contact: contact }).select().single();
         p = ins.data;
       }
       if (!alive) return;

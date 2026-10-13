@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { admin, emailConfigured, sendEmail, sendSms, smsConfigured } from "@/lib/server";
-import { usd } from "@/lib/money";
+import { toE164, usd } from "@/lib/money";
 
 export async function POST(req: Request) {
   const b = (await req.json().catch(() => ({}))) as {
@@ -34,12 +34,16 @@ export async function POST(req: Request) {
 
   // Tell the owner. Best-effort; never fail the customer's tap.
   try {
-    const { data } = await db.auth.admin.getUserById(est.user_id);
-    const owner = data.user;
+    const [{ data: u }, { data: prof }] = await Promise.all([
+      db.auth.admin.getUserById(est.user_id),
+      db.from("profiles").select("owner_contact").eq("id", est.user_id).single(),
+    ]);
+    const contact = prof?.owner_contact?.trim() || u.user?.email || u.user?.phone || "";
     const msg = `${est.customer_name} ${accept ? "ACCEPTED" : "declined"} your estimate (${usd(Number(est.total))}).`;
-    if (owner?.email && emailConfigured())
-      await sendEmail({ to: owner.email, subject: msg, text: `${msg}\n\nOpen your estimates to see details.` });
-    else if (owner?.phone && smsConfigured()) await sendSms(`+${owner.phone.replace(/^\+/, "")}`, msg);
+    const phone = contact.includes("@") ? null : toE164(contact);
+    if (contact.includes("@") && emailConfigured())
+      await sendEmail({ to: contact, subject: msg, text: `${msg}\n\nOpen your estimates to see details.` });
+    else if (phone && smsConfigured()) await sendSms(phone, msg);
   } catch (e) {
     console.error("owner notify failed", e);
   }
