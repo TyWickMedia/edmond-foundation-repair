@@ -14,7 +14,8 @@ export default function NewEstimate() {
   const router = useRouter();
   const { session, profile, ready } = useAuth();
   const [name, setName] = useState("");
-  const [contact, setContact] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [items, setItems] = useState<Item[]>([blank()]);
   const [notes, setNotes] = useState("");
   const [say, setSay] = useState("");
@@ -42,7 +43,8 @@ export default function NewEstimate() {
         return all.length ? all : [blank()];
       });
       if (j.customer_name && !name) setName(j.customer_name);
-      if (!contact && (j.customer_phone || j.customer_email)) setContact(j.customer_phone || j.customer_email);
+      if (j.customer_phone && !phone) setPhone(j.customer_phone);
+      if (j.customer_email && !email) setEmail(j.customer_email);
       if (j.notes) setNotes((n) => (n ? `${n}\n${j.notes}` : j.notes));
       setSay("");
     } catch (e: any) {
@@ -62,17 +64,16 @@ export default function NewEstimate() {
     setErr("");
     const clean = cleanItems(items);
     if (!name.trim()) return setErr("Who's it for? Add the customer's name.");
-    if (!contact.trim()) return setErr("Add a phone number or email to send it to.");
+    if (!phone.trim() && !email.trim()) return setErr("Add a cell number or an email to send it to.");
     if (!clean.length) return setErr("Add at least one line with a description.");
     setBusy(true);
-    const isEmail = contact.includes("@");
     const { data, error } = await supabase()
       .from("estimates")
       .insert({
         user_id: session!.user.id,
         customer_name: name.trim(),
-        customer_phone: isEmail ? null : contact.trim(),
-        customer_email: isEmail ? contact.trim() : null,
+        customer_phone: phone.trim() || null,
+        customer_email: email.trim() || null,
         items: clean,
         notes: notes.trim() || null,
         total: sumItems(clean),
@@ -80,15 +81,9 @@ export default function NewEstimate() {
       .select("id")
       .single();
     if (error || !data) { setBusy(false); return setErr(error?.message ?? "Couldn't save."); }
-    const res = await fetch("/api/send", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", ...(await authHeader()) },
-      body: JSON.stringify({ id: data.id }),
-    });
-    if (!res.ok) { setBusy(false); return setErr("Saved, but couldn't send. Open it from your list to retry."); }
-    const j = await res.json();
-    const manual = j.manual?.sms || j.manual?.email ? "&manual=1" : "";
-    router.replace(`/estimate/${data.id}?sent=1${manual}`);
+    // One way to send -> open that app right away. Both -> the next screen asks which.
+    const go = phone.trim() && !email.trim() ? "&go=sms" : email.trim() && !phone.trim() ? "&go=mail" : "";
+    router.replace(`/estimate/${data.id}?sent=1${go}`);
   }
 
   if (!ready) return <main className="wrap muted">Loading…</main>;
@@ -120,8 +115,10 @@ export default function NewEstimate() {
 
       <label htmlFor="cname">Customer</label>
       <input id="cname" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" autoComplete="off" />
-      <label htmlFor="ccontact">Cell or email</label>
-      <input id="ccontact" value={contact} onChange={(e) => setContact(e.target.value)} placeholder="405-555-0123 or name@email.com" inputMode="email" autoComplete="off" />
+      <label htmlFor="cphone">Cell (to text it)</label>
+      <input id="cphone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="405-555-0123" inputMode="tel" autoComplete="off" />
+      <label htmlFor="cemail">Email (optional)</label>
+      <input id="cemail" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="name@email.com" inputMode="email" autoComplete="off" />
 
       <h2>What's the work</h2>
       {items.map((it, i) => (
@@ -143,7 +140,7 @@ export default function NewEstimate() {
       <div className="bar">
         <div>
           <span className="tot">{usd(total)}</span>
-          <button className="primary" disabled={busy || thinking} onClick={send}>{busy ? "Sending…" : "Send it →"}</button>
+          <button className="primary" disabled={busy || thinking} onClick={send}>{busy ? "Saving…" : "Send it →"}</button>
         </div>
       </div>
     </main>

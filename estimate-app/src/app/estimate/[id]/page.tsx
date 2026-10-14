@@ -3,11 +3,27 @@ import Link from "next/link";
 import { use, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useAuth } from "@/components/useAuth";
-import { authHeader, supabase } from "@/lib/supabase";
+import { supabase } from "@/lib/supabase";
 import { lineTotal, toE164, usd } from "@/lib/money";
-import type { Estimate } from "@/lib/types";
+import type { Estimate, Profile } from "@/lib/types";
 
 const when = (s: string | null) => (s ? new Date(s).toLocaleString([], { dateStyle: "medium", timeStyle: "short" }) : null);
+
+/** Message + deep links that open the owner's own text / email app, pre-filled. */
+function links(est: Estimate, profile: Profile | null) {
+  const url = `${location.origin}/e/${est.public_token}`;
+  const biz = profile?.business_name ?? "your contractor";
+  const first = est.customer_name.split(" ")[0];
+  const text = `Hi ${first}, here's your estimate from ${biz} for ${usd(Number(est.total))}: ${url}`;
+  const phone = toE164(est.customer_phone) ?? est.customer_phone;
+  return {
+    url,
+    sms: est.customer_phone ? `sms:${phone}?&body=${encodeURIComponent(text)}` : null,
+    mail: est.customer_email
+      ? `mailto:${est.customer_email}?subject=${encodeURIComponent(`Estimate from ${biz}`)}&body=${encodeURIComponent(text)}`
+      : null,
+  };
+}
 
 export default function Detail({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
@@ -15,7 +31,6 @@ export default function Detail({ params }: { params: Promise<{ id: string }> }) 
   const { profile, ready } = useAuth();
   const [est, setEst] = useState<Estimate | null>(null);
   const [msg, setMsg] = useState("");
-  const [busy, setBusy] = useState(false);
 
   useEffect(() => {
     if (!ready) return;
@@ -25,38 +40,41 @@ export default function Detail({ params }: { params: Promise<{ id: string }> }) 
     return () => clearInterval(t);
   }, [ready, id]);
 
+  // "Sent" means you opened your text/email app with it, not just that it was saved.
+  async function markSent() {
+    await supabase().from("estimates").update({ status: "sent", sent_at: new Date().toISOString() }).eq("id", id).eq("status", "draft");
+    setEst((e) => (e && e.status === "draft" ? { ...e, status: "sent", sent_at: new Date().toISOString() } : e));
+  }
+
+  // Straight after "Send it" with only one way to send: open that app once.
+  const go = sp.get("go");
+  useEffect(() => {
+    if (!est || !go) return;
+    const key = `opened-${id}`;
+    try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, "1"); } catch {}
+    const l = links(est, profile);
+    const href = go === "sms" ? l.sms : go === "mail" ? l.mail : null;
+    if (href) { markSent(); window.location.href = href; }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [est?.id, go]);
+
   if (!ready || !est) return <main className="wrap muted">Loading…</main>;
 
-  const url = `${location.origin}/e/${est.public_token}`;
-  const text = `Hi ${est.customer_name.split(" ")[0]}, here's your estimate from ${profile?.business_name} for ${usd(Number(est.total))}: ${url}`;
-  const phone = toE164(est.customer_phone);
-  const smsHref = `sms:${phone ?? est.customer_phone}?&body=${encodeURIComponent(text)}`;
-  const mailHref = est.customer_email
-    ? `mailto:${est.customer_email}?subject=${encodeURIComponent(`Estimate from ${profile?.business_name}`)}&body=${encodeURIComponent(text)}`
-    : null;
+  const l = links(est, profile);
+  const first = est.customer_name.split(" ")[0];
+  const open = est.status !== "accepted" && est.status !== "declined";
+  const both = !!(l.sms && l.mail);
 
-  async function resend() {
-    setBusy(true); setMsg("");
-    const res = await fetch("/api/send", { method: "POST", headers: { "Content-Type": "application/json", ...(await authHeader()) }, body: JSON.stringify({ id }) });
-    const j = await res.json().catch(() => ({}));
-    setBusy(false);
-    setMsg(res.ok ? (j.delivered?.length ? `Sent by ${j.delivered.join(" + ")}.` : "Use the buttons below to send it from your phone.") : "Couldn't send. Try again.");
-  }
   async function copy() {
-    try { await navigator.clipboard.writeText(url); setMsg("Link copied."); } catch { setMsg(url); }
+    try { await navigator.clipboard.writeText(l.url); setMsg("Link copied."); } catch { setMsg(l.url); }
   }
-
-  const justSent = sp.get("sent") === "1";
-  const needsManual = sp.get("manual") === "1";
 
   return (
     <main className="wrap">
       <div className="top"><Link href="/">← Estimates</Link></div>
       <h1>{est.customer_name}</h1>
-      <p><span className={`badge ${est.status}`}>{est.status}</span> <b>{usd(Number(est.total))}</b></p>
+      <p><span className={`badge ${est.status}`}>{est.status === "draft" ? "not sent yet" : est.status}</span> <b>{usd(Number(est.total))}</b></p>
 
-      {justSent && !needsManual && <div className="ok">Sent. We&apos;ll tell you when they open it.</div>}
-      {justSent && needsManual && <div className="nudge"><b>Last step:</b> tap below to send it from your own phone.</div>}
       {msg && <div className="ok">{msg}</div>}
 
       {est.status === "accepted" && (
@@ -69,16 +87,16 @@ export default function Detail({ params }: { params: Promise<{ id: string }> }) 
         <div className="err">Declined · {when(est.responded_at)}{est.decline_reason ? ` — “${est.decline_reason}”` : ""}</div>
       )}
 
-      {est.status !== "accepted" && est.status !== "declined" && (
+      {open && (
         <div className="card">
-          {est.customer_phone && <p><a className="btn primary" href={smsHref}>Text it to {est.customer_name.split(" ")[0]}</a></p>}
-          {mailHref && <p><a className="btn primary" href={mailHref}>Email it</a></p>}
-          <p><button onClick={copy}>Copy link</button></p>
-          <button className="ghost" disabled={busy} onClick={resend}>{busy ? "Sending…" : "Resend automatically"}</button>
+          {est.status === "draft" && <p><b>{both ? "How do you want to send it?" : "Send it"}</b></p>}
+          {l.sms && <p><a className="btn primary" href={l.sms} onClick={markSent}>Text it to {first}</a></p>}
+          {l.mail && <p><a className="btn primary" href={l.mail} onClick={markSent}>Email it to {first}</a></p>}
+          <button className="ghost" onClick={copy}>Copy link</button>
         </div>
       )}
 
-      {justSent && profile && !profile.logo_url && (
+      {sp.get("sent") === "1" && profile && !profile.logo_url && (
         <div className="nudge">Want your logo on these? <Link href="/settings">Add it (10 seconds)</Link></div>
       )}
 
@@ -95,7 +113,7 @@ export default function Detail({ params }: { params: Promise<{ id: string }> }) 
       <p className="muted small">
         {est.sent_at && <>Sent {when(est.sent_at)}<br /></>}
         {est.viewed_at && <>Viewed {when(est.viewed_at)}<br /></>}
-        Customer link: <a href={url}>{url}</a>
+        Customer link: <a href={l.url}>{l.url}</a>
       </p>
     </main>
   );

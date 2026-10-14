@@ -14,7 +14,7 @@ Rules:
 - Spoken numbers: "thirty two hundred" = 3200, "a hundred fifty" = 150.
 - Put terms, warranty, payment timing, exclusions, or "good for 30 days" style remarks in notes, not line items.
 - Only fill customer fields if the contractor actually said them. Customer details are usually said first ("for Mike Johnson, 405 555 0123 ...") but may come anywhere. Never put them in a line item.
-- customer_phone: digits only, e.g. "4055550123". Convert spoken digits ("four oh five") to numbers.
+- customer_phone: digits only, e.g. "4055550123". They may give a phone, an email, or both. Convert spoken digits ("four oh five") to numbers.
 - customer_email: rebuild spoken emails: "at" -> @, "dot" -> ., remove spaces, lowercase ("mike dot j at gmail dot com" -> "mike.j@gmail.com").
 - customer_name: just the name, properly capitalized.
 Always call the tool.`;
