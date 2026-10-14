@@ -17,8 +17,17 @@ export async function userFromRequest(req: Request) {
   return error ? null : data.user;
 }
 
-export const appUrl = () =>
-  (process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000").replace(/\/$/, "");
+/** Public base URL: the host the request actually came in on, else the env var. */
+export function appUrl(req?: Request) {
+  if (req) {
+    const host = req.headers.get("x-forwarded-host") || req.headers.get("host");
+    if (host) {
+      const proto = req.headers.get("x-forwarded-proto") || (host.startsWith("localhost") ? "http" : "https");
+      return `${proto}://${host}`;
+    }
+  }
+  return (process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000").replace(/\/$/, "");
+}
 
 // ---- Outbound messaging (plain REST; no SDKs) ----
 

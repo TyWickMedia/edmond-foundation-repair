@@ -17,7 +17,7 @@ export async function POST(req: Request) {
   if (!est) return NextResponse.json({ error: "Estimate not found." }, { status: 404 });
   const { data: profile } = await db.from("profiles").select("business_name, phone").eq("id", user.id).single();
 
-  const url = `${appUrl()}/e/${est.public_token}`;
+  const url = `${appUrl(req)}/e/${est.public_token}`;
   const biz = profile?.business_name ?? "Your contractor";
   const first = String(est.customer_name).split(" ")[0];
   const body = `Hi ${first}, here's your estimate from ${biz} for ${usd(Number(est.total))}: ${url}`;
