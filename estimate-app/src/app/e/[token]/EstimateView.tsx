@@ -6,7 +6,7 @@ import type { Item, Status } from "@/lib/types";
 type Props = {
   token: string;
   biz: { name: string; logo: string | null; address: string | null; license: string | null; phone: string | null };
-  est: { customer: string; items: Item[]; notes: string | null; total: number; status: Status; date: string; signer: string | null; respondedAt: string | null };
+  est: { customer: string; address: string | null; items: Item[]; notes: string | null; total: number; status: Status; date: string; signer: string | null; respondedAt: string | null };
 };
 
 export function EstimateView({ token, biz, est }: Props) {
@@ -80,6 +80,7 @@ export function EstimateView({ token, biz, est }: Props) {
       </div>
 
       <h1>Estimate for {est.customer}</h1>
+      {est.address && <div className="muted">{est.address}</div>}
       <div className="muted small">{new Date(est.date).toLocaleDateString([], { dateStyle: "long" })}</div>
 
       {status === "accepted" && <div className="ok">Accepted{est.signer || name ? ` by ${est.signer || name}` : ""}. {biz.name} has been notified — thank you!</div>}

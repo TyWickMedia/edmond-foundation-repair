@@ -16,6 +16,7 @@ export default function NewEstimate() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
   const [items, setItems] = useState<Item[]>([blank()]);
   const [notes, setNotes] = useState("");
   const [say, setSay] = useState("");
@@ -45,6 +46,7 @@ export default function NewEstimate() {
       if (j.customer_name && !name) setName(j.customer_name);
       if (j.customer_phone && !phone) setPhone(j.customer_phone);
       if (j.customer_email && !email) setEmail(j.customer_email);
+      if (j.customer_address && !address) setAddress(j.customer_address);
       if (j.notes) setNotes((n) => (n ? `${n}\n${j.notes}` : j.notes));
       setSay("");
     } catch (e: any) {
@@ -65,6 +67,7 @@ export default function NewEstimate() {
     const clean = cleanItems(items);
     if (!name.trim()) return setErr("Who's it for? Add the customer's name.");
     if (!phone.trim() && !email.trim()) return setErr("Add a cell number or an email to send it to.");
+    if (!address.trim()) return setErr("Add the customer's address (where the work is). You'll want it if you ever need to file a lien.");
     if (!clean.length) return setErr("Add at least one line with a description.");
     setBusy(true);
     const { data, error } = await supabase()
@@ -74,6 +77,7 @@ export default function NewEstimate() {
         customer_name: name.trim(),
         customer_phone: phone.trim() || null,
         customer_email: email.trim() || null,
+        customer_address: address.trim(),
         items: clean,
         notes: notes.trim() || null,
         total: sumItems(clean),
@@ -100,14 +104,24 @@ export default function NewEstimate() {
         {voice.supported && (
           <button className={`primary mic ${voice.listening ? "live" : ""}`} disabled={thinking}
             onClick={() => (voice.listening ? voice.stop() : voice.start())}>
-            {voice.listening ? "■ Tap when done" : thinking ? "Reading…" : "🎤 Tap and talk: customer + job"}
+            {voice.listening ? "■ Tap when done" : thinking ? "Reading…" : "🎤 Tap and talk"}
           </button>
         )}
+        <div className="howto">
+          <b>Say it in this order:</b>
+          <ol>
+            <li>Customer&apos;s name</li>
+            <li>Cell number (and email, if they have one)</li>
+            <li>Job address</li>
+            <li>The work and the prices</li>
+          </ol>
+          <span className="muted small">&ldquo;Mike Johnson, 405-555-0123, 123 Main Street Edmond. Replace 40 feet of sewer line, $3,200. Permit, $150.&rdquo;</span>
+        </div>
         {voice.listening && <p className="muted">{voice.live || "Listening…"}</p>}
         {!voice.listening && (
           <>
             <textarea value={say} onChange={(e) => setSay(e.target.value)}
-              placeholder={voice.supported ? "…or type it. Say the customer too: For Mike Johnson, 405-555-0123. 200 ft of 4-inch sewer line, tie into existing tank, $3,200, plus permit $150" : "Describe the job. Say the customer too: For Mike Johnson, 405-555-0123. 200 ft of 4-inch sewer line, tie into existing tank, $3,200, plus permit $150"} />
+              placeholder={voice.supported ? "…or type it the same way" : "Type it: name, cell, address, then the work and prices"} />
             {say.trim() && <button className="ghost" disabled={thinking} onClick={() => build(say)}>{thinking ? "Reading…" : "Make line items"}</button>}
           </>
         )}
@@ -119,6 +133,8 @@ export default function NewEstimate() {
       <input id="cphone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="405-555-0123" inputMode="tel" autoComplete="off" />
       <label htmlFor="cemail">Email (optional)</label>
       <input id="cemail" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="name@email.com" inputMode="email" autoComplete="off" />
+      <label htmlFor="caddr">Customer address (where the work is)</label>
+      <input id="caddr" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="123 Main St, Edmond, OK 73034" autoComplete="street-address" />
 
       <h2>What's the work</h2>
       {items.map((it, i) => (

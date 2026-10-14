@@ -20,6 +20,7 @@ create table if not exists estimates (
   customer_name text not null,
   customer_phone text,
   customer_email text,
+  customer_address text,   -- job site / customer address (needed for liens)
   items jsonb not null default '[]',
   notes text,
   total numeric(12,2) not null default 0,

@@ -17,6 +17,7 @@ Rules:
 - customer_phone: digits only, e.g. "4055550123". They may give a phone, an email, or both. Convert spoken digits ("four oh five") to numbers.
 - customer_email: rebuild spoken emails: "at" -> @, "dot" -> ., remove spaces, lowercase ("mike dot j at gmail dot com" -> "mike.j@gmail.com").
 - customer_name: just the name, properly capitalized.
+- customer_address: the street address of the customer / job site as said, written normally ("123 Main Street, Edmond, OK 73034"). Spoken numbers become digits. Never put the address in a line item.
 Always call the tool.`;
 
 const TOOL: Anthropic.Tool = {
@@ -28,6 +29,7 @@ const TOOL: Anthropic.Tool = {
       customer_name: { type: "string" },
       customer_phone: { type: "string" },
       customer_email: { type: "string" },
+      customer_address: { type: "string" },
       items: {
         type: "array",
         items: {

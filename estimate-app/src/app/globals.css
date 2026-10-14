@@ -107,3 +107,7 @@ button:disabled { opacity: .5; cursor: default; }
 .seg button.on { background: var(--ink); color: #fff; border-color: var(--ink); }
 .sigimg { max-width: 100%; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
 .pre { white-space: pre-wrap; }
+
+.howto { margin: 12px 0 4px; padding: 10px 12px; background: #fff4e6; border-radius: var(--radius); }
+.howto ol { margin: 6px 0 8px; padding-left: 22px; }
+.howto li { margin: 2px 0; }

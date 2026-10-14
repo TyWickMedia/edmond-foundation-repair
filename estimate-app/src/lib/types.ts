@@ -19,6 +19,7 @@ export type Estimate = {
   customer_name: string;
   customer_phone: string | null;
   customer_email: string | null;
+  customer_address: string | null;
   items: Item[];
   notes: string | null;
   total: number;

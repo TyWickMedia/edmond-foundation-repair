@@ -73,6 +73,7 @@ export default function Detail({ params }: { params: Promise<{ id: string }> }) 
     <main className="wrap">
       <div className="top"><Link href="/">← Estimates</Link></div>
       <h1>{est.customer_name}</h1>
+      {est.customer_address && <p className="muted" style={{ marginTop: -8 }}>{est.customer_address}</p>}
       <p><span className={`badge ${est.status}`}>{est.status === "draft" ? "not sent yet" : est.status}</span> <b>{usd(Number(est.total))}</b></p>
 
       {msg && <div className="ok">{msg}</div>}
