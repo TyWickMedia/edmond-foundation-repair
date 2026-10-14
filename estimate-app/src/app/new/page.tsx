@@ -105,14 +105,14 @@ export default function NewEstimate() {
         {voice.supported && (
           <button className={`primary mic ${voice.listening ? "live" : ""}`} disabled={thinking}
             onClick={() => (voice.listening ? voice.stop() : voice.start())}>
-            {voice.listening ? "■ Tap when done" : thinking ? "Reading…" : "🎤 Tap and talk the job"}
+            {voice.listening ? "■ Tap when done" : thinking ? "Reading…" : "🎤 Tap and talk: customer + job"}
           </button>
         )}
         {voice.listening && <p className="muted">{voice.live || "Listening…"}</p>}
         {!voice.listening && (
           <>
             <textarea value={say} onChange={(e) => setSay(e.target.value)}
-              placeholder={voice.supported ? "…or type it: 200 ft of 4-inch sewer line, tie into existing tank, $3,200, plus permit $150" : "Describe the job: 200 ft of 4-inch sewer line, tie into existing tank, $3,200, plus permit $150"} />
+              placeholder={voice.supported ? "…or type it. Say the customer too: For Mike Johnson, 405-555-0123. 200 ft of 4-inch sewer line, tie into existing tank, $3,200, plus permit $150" : "Describe the job. Say the customer too: For Mike Johnson, 405-555-0123. 200 ft of 4-inch sewer line, tie into existing tank, $3,200, plus permit $150"} />
             {say.trim() && <button className="ghost" disabled={thinking} onClick={() => build(say)}>{thinking ? "Reading…" : "Make line items"}</button>}
           </>
         )}
