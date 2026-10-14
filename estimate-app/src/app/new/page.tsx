@@ -67,7 +67,6 @@ export default function NewEstimate() {
     const clean = cleanItems(items);
     if (!name.trim()) return setErr("Who's it for? Add the customer's name.");
     if (!phone.trim() && !email.trim()) return setErr("Add a cell number or an email to send it to.");
-    if (!address.trim()) return setErr("Add the customer's address (where the work is). You'll want it if you ever need to file a lien.");
     if (!clean.length) return setErr("Add at least one line with a description.");
     setBusy(true);
     const { data, error } = await supabase()
@@ -77,7 +76,7 @@ export default function NewEstimate() {
         customer_name: name.trim(),
         customer_phone: phone.trim() || null,
         customer_email: email.trim() || null,
-        customer_address: address.trim(),
+        customer_address: address.trim() || null,
         items: clean,
         notes: notes.trim() || null,
         total: sumItems(clean),
@@ -133,7 +132,7 @@ export default function NewEstimate() {
       <input id="cphone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="405-555-0123" inputMode="tel" autoComplete="off" />
       <label htmlFor="cemail">Email (optional)</label>
       <input id="cemail" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="name@email.com" inputMode="email" autoComplete="off" />
-      <label htmlFor="caddr">Customer address (where the work is)</label>
+      <label htmlFor="caddr">Job address (optional, but you'll want it for liens)</label>
       <input id="caddr" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="123 Main St, Edmond, OK 73034" autoComplete="street-address" />
 
       <h2>What's the work</h2>
